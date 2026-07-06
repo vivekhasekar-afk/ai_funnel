@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Greeting -->
+<h2 style="margin: 0 0 24px 0; font-size: 28px; font-weight: 700; color: #1a202c;">
+    Hi {{ user_name }}! 👋
+</h2>
+
+<p style="font-size: 18px; line-height: 1.6; color: #2d3748; margin: 0 0 24px 0;">
+    Welcome to <strong>{{ project_name }}</strong>! We're thrilled to have you on board.
+</p>
+
+<p style="font-size: 16px; line-height: 1.6; color: #4a5568; margin: 0 0 32px 0;">
+    To get started and unlock all features, please verify your email address by clicking the button below:
+</p>
+
+<!-- Verification Button -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+    <tr>
+        <td class="button-wrapper" style="text-align: center; padding: 32px 0;">
+            <a href="{{ verification_url }}" class="button" style="display: inline-block; padding: 18px 48px; font-size: 18px; font-weight: 600; color: #ffffff !important; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 10px; text-decoration: none; box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3); transition: all 0.3s ease;">
+                ✅ Verify Email Address
+            </a>
+        </td>
+    </tr>
+</table>
+
+<!-- What happens next -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 32px 0;">
+    <tr>
+        <td class="card card-info" style="background: linear-gradient(135deg, #e7f3ff 0%, #cfe2ff 100%); border-left: 4px solid #2196f3; border-radius: 10px; padding: 24px;">
+            <p style="margin: 0 0 12px 0; font-weight: 600; color: #1a202c; font-size: 16px;">
+                🚀 What happens after verification?
+            </p>
+            <ul style="margin: 0; padding-left: 20px; color: #4a5568; font-size: 15px;">
+                <li style="margin-bottom: 8px;">Access your dashboard instantly</li>
+                <li style="margin-bottom: 8px;">Create your first AI-powered funnel</li>
+                <li style="margin-bottom: 8px;">Start capturing and converting leads</li>
+                <li style="margin-bottom: 0;">Explore all premium features</li>
+            </ul>
+        </td>
+    </tr>
+</table>
+
+<!-- Alternative link -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 32px 0;">
+    <tr>
+        <td style="background: #f7fafc; border: 1px dashed #cbd5e0; border-radius: 8px; padding: 20px;">
+            <p style="margin: 0 0 12px 0; font-size: 14px; color: #2d3748; font-weight: 600;">
+                🔗 Button not working?
+            </p>
+            <p style="margin: 0 0 8px 0; font-size: 14px; color: #4a5568;">
+                Copy and paste this link into your browser:
+            </p>
+            <p style="margin: 0; font-size: 13px;">
+                <a href="{{ verification_url }}" style="color: #667eea; word-break: break-all; text-decoration: underline;">{{ verification_url }}</a>
+            </p>
+        </td>
+    </tr>
+</table>
+
+<!-- Security notice -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 32px 0;">
+    <tr>
+        <td class="card card-warning" style="background: linear-gradient(135deg, #fff3cd 0%, #ffe69c 100%); border-left: 4px solid #ffc107; border-radius: 10px; padding: 20px;">
+            <p style="margin: 0; font-size: 14px; color: #2d3748; line-height: 1.6;">
+                ⚠️ <strong>Security Notice:</strong> This verification link will expire in <strong>24 hours</strong>. For your security, please verify your email as soon as possible.
+            </p>
+        </td>
+    </tr>
+</table>
+
+<!-- Divider -->
+<div class="divider" style="height: 1px; background: linear-gradient(to right, transparent, #e2e8f0, transparent); margin: 40px 0;"></div>
+
+<!-- Didn't sign up? -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 24px 0;">
+    <tr>
+        <td style="background: #f7fafc; border-radius: 8px; padding: 20px; text-align: center;">
+            <p style="margin: 0 0 8px 0; font-size: 15px; color: #2d3748; font-weight: 600;">
+                🤔 Didn't create an account?
+            </p>
+            <p style="margin: 0; font-size: 14px; color: #718096;">
+                If you didn't sign up for {{ project_name }}, you can safely ignore this email.<br>
+                No account will be created without verification.
+            </p>
+        </td>
+    </tr>
+</table>
+
+<!-- Quick stats / Social proof -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 32px 0;">
+    <tr>
+        <td style="text-align: center; padding: 24px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 10px;">
+            <p style="color: rgba(255,255,255,0.9); font-size: 14px; margin: 0 0 16px 0; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">
+                Join thousands of users
+            </p>
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                <tr>
+                    <td style="width: 33.33%; text-align: center; padding: 10px;">
+                        <p style="color: #ffffff; font-size: 28px; font-weight: 700; margin: 0; line-height: 1;">10K+</p>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 12px; margin: 4px 0 0 0;">Active Users</p>
+                    </td>
+                    <td style="width: 33.33%; text-align: center; padding: 10px; border-left: 1px solid rgba(255,255,255,0.2); border-right: 1px solid rgba(255,255,255,0.2);">
+                        <p style="color: #ffffff; font-size: 28px; font-weight: 700; margin: 0; line-height: 1;">98%</p>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 12px; margin: 4px 0 0 0;">Satisfaction</p>
+                    </td>
+                    <td style="width: 33.33%; text-align: center; padding: 10px;">
+                        <p style="color: #ffffff; font-size: 28px; font-weight: 700; margin: 0; line-height: 1;">1M+</p>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 12px; margin: 4px 0 0 0;">Leads Captured</p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<!-- Need help? -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 32px 0 0 0;">
+    <tr>
+        <td style="text-align: center; padding: 20px; background: #f7fafc; border-radius: 8px;">
+            <p style="margin: 0 0 8px 0; font-size: 15px; color: #2d3748; font-weight: 600;">
+                💬 Need Help?
+            </p>
+            <p style="margin: 0; font-size: 14px; color: #4a5568;">
+                Our support team is here 24/7.<br>
+                Email us at <a href="mailto:{{ support_email }}" style="color: #667eea; font-weight: 600; text-decoration: none;">{{ support_email }}</a>
+            </p>
+        </td>
+    </tr>
+</table>
+
+<!-- Closing -->
+<p style="font-size: 16px; line-height: 1.6; color: #4a5568; margin: 32px 0 0 0;">
+    We can't wait to see what you'll build!
+</p>
+
+<p style="font-size: 16px; line-height: 1.6; color: #2d3748; margin: 16px 0 0 0;">
+    <strong>Best regards,</strong><br>
+    The {{ project_name }} Team 🚀
+</p>
+
+<!-- P.S. Section -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 32px 0 0 0;">
+    <tr>
+        <td style="border-top: 2px solid #e2e8f0; padding-top: 20px;">
+            <p style="margin: 0; font-size: 14px; color: #718096; font-style: italic;">
+                <strong>P.S.</strong> Pro tip: After verifying, check out our <a href="{{ getting_started_url|default('#') }}" style="color: #667eea; text-decoration: none; font-weight: 600;">Quick Start Guide</a> to create your first funnel in under 5 minutes! ⚡
+            </p>
+        </td>
+    </tr>
+</table>
+
+{% endblock %}
+
+{% block footer %}
+{{ super() }}
+{% endblock %}

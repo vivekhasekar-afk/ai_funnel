@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- =================================================================== -->
+  <!-- AI FUNNEL PLATFORM - Vite Entry HTML (Enhanced Production)         -->
+  <!-- =================================================================== -->
+  
+  <!-- Essential Meta Tags -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  
+  <!-- SEO Meta Tags -->
+  <title>AI Funnel Platform - Create High-Converting Funnels with AI</title>
+  <meta name="description" content="Build, optimize, and scale your marketing funnels with AI-powered tools. Generate high-converting funnels, track analytics, and capture more leads effortlessly." />
+  <meta name="keywords" content="AI funnel builder, marketing funnels, lead generation, conversion optimization, funnel analytics, AI marketing, sales funnels, landing pages" />
+  <meta name="author" content="AI Funnel Platform" />
+  <meta name="application-name" content="AI Funnel Platform" />
+  <meta name="generator" content="Vite + React" />
+  
+  <!-- Robots & Crawling -->
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="bingbot" content="index, follow" />
+  <link rel="canonical" href="https://aifunnelplatform.com/" />
+  
+  <!-- Open Graph / Facebook Meta Tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://aifunnelplatform.com/" />
+  <meta property="og:site_name" content="AI Funnel Platform" />
+  <meta property="og:title" content="AI Funnel Platform - Create High-Converting Funnels with AI" />
+  <meta property="og:description" content="Build, optimize, and scale your marketing funnels with AI-powered tools. Generate high-converting funnels, track analytics, and capture more leads." />
+  <meta property="og:image" content="/og-image.jpg" />
+  <meta property="og:image:secure_url" content="https://aifunnelplatform.com/og-image.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="AI Funnel Platform - Marketing Funnel Builder" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="fb:app_id" content="YOUR_FB_APP_ID" />
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@aifunnelplatform" />
+  <meta name="twitter:creator" content="@aifunnelplatform" />
+  <meta name="twitter:url" content="https://aifunnelplatform.com/" />
+  <meta name="twitter:title" content="AI Funnel Platform - Create High-Converting Funnels with AI" />
+  <meta name="twitter:description" content="Build, optimize, and scale your marketing funnels with AI-powered tools. Track analytics and capture more leads." />
+  <meta name="twitter:image" content="https://aifunnelplatform.com/twitter-image.jpg" />
+  <meta name="twitter:image:alt" content="AI Funnel Platform Interface" />
+  
+  <!-- Theme & Browser UI Colors -->
+  <meta name="theme-color" content="#667eea" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#4f46e5" media="(prefers-color-scheme: dark)" />
+  <meta name="msapplication-TileColor" content="#667eea" />
+  <meta name="msapplication-navbutton-color" content="#667eea" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="AI Funnel" />
+  
+  <!-- Security Headers -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png" />
+  
+  <!-- Apple Touch Icons -->
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png" />
+  <link rel="apple-touch-icon" sizes="167x167" href="/apple-touch-icon-167x167.png" />
+  
+  <!-- Splash Screens for iOS PWA -->
+  <link rel="apple-touch-startup-image" href="/apple-splash-2048-2732.jpg" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+  <link rel="apple-touch-startup-image" href="/apple-splash-1668-2388.jpg" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+  <link rel="apple-touch-startup-image" href="/apple-splash-1536-2048.jpg" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+  <link rel="apple-touch-startup-image" href="/apple-splash-1125-2436.jpg" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+  <link rel="apple-touch-startup-image" href="/apple-splash-828-1792.jpg" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+  <link rel="apple-touch-startup-image" href="/apple-splash-750-1334.jpg" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+  
+  <!-- Web App Manifest -->
+  <link rel="manifest" href="/manifest.json" />
+  
+  <!-- Preconnect to Required Origins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+  
+  <!-- Preload Critical Assets -->
+  <link rel="modulepreload" href="/src/main.jsx" />
+  
+  <!-- Google Fonts -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  </noscript>
+  
+  <!-- Critical CSS for Initial Render -->
+  <style>
+    /* CSS Reset & Base Styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      scroll-behavior: smooth;
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #111827;
+      background: #ffffff;
+      overflow-x: hidden;
+      min-height: 100%;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    #root {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Initial Loading Screen */
+    .app-loader {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      z-index: 999999;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .app-loader__content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .app-loader__logo {
+      width: 120px;
+      height: 120px;
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+      }
+    }
+
+    .app-loader__spinner {
+      width: 64px;
+      height: 64px;
+      border: 6px solid rgba(255, 255, 255, 0.2);
+      border-top-color: #ffffff;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .app-loader__text {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #ffffff;
+      text-align: center;
+      letter-spacing: -0.025em;
+    }
+
+    .app-loader__subtitle {
+      font-size: 0.938rem;
+      color: rgba(255, 255, 255, 0.8);
+      text-align: center;
+      margin-top: -1rem;
+    }
+
+    .app-loader__progress {
+      width: 200px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 2px;
+      overflow: hidden;
+      margin-top: 1rem;
+    }
+
+    .app-loader__progress-bar {
+      height: 100%;
+      background: #ffffff;
+      border-radius: 2px;
+      animation: progress 2s ease-in-out infinite;
+    }
+
+    @keyframes progress {
+      0% { width: 0%; transform: translateX(0); }
+      50% { width: 100%; transform: translateX(0); }
+      100% { width: 100%; transform: translateX(100%); }
+    }
+
+    /* No Script Warning */
+    .noscript-alert {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+      color: white;
+      text-align: center;
+      z-index: 1000000;
+    }
+
+    .noscript-alert__icon {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 2rem;
+    }
+
+    .noscript-alert__title {
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      letter-spacing: -0.025em;
+    }
+
+    .noscript-alert__message {
+      font-size: 1.25rem;
+      max-width: 600px;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      opacity: 0.95;
+    }
+
+    .noscript-alert__instructions {
+      text-align: left;
+      max-width: 500px;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 1.5rem;
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+    }
+
+    .noscript-alert__instructions h3 {
+      font-size: 1.125rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .noscript-alert__instructions ol {
+      padding-left: 1.5rem;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .noscript-alert__instructions li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Hide loader when ready */
+    .app-ready .app-loader {
+      animation: fadeOut 0.3s ease forwards;
+      pointer-events: none;
+    }
+
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; visibility: hidden; }
+    }
+
+    /* Reduced Motion Support */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      html { scroll-behavior: auto; }
+    }
+
+    /* Print Styles */
+    @media print {
+      body { background: white; }
+      .app-loader, .noscript-alert { display: none !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- No JavaScript Fallback -->
+  <noscript>
+    <div class="noscript-alert">
+      <svg class="noscript-alert__icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+      </svg>
+      <h1 class="noscript-alert__title">JavaScript Required</h1>
+      <p class="noscript-alert__message">
+        This application requires JavaScript to function. Please enable JavaScript in your browser and reload the page.
+      </p>
+      <div class="noscript-alert__instructions">
+        <h3>Enable JavaScript:</h3>
+        <ol>
+          <li>Open browser settings</li>
+          <li>Navigate to Privacy & Security</li>
+          <li>Enable JavaScript</li>
+          <li>Refresh this page</li>
+        </ol>
+      </div>
+    </div>
+  </noscript>
+
+  <!-- Initial Loading Screen -->
+  <div class="app-loader" id="app-loader" aria-live="polite" aria-busy="true">
+    <div class="app-loader__content">
+      <svg class="app-loader__logo" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="60" cy="60" r="58" stroke="white" stroke-width="4" opacity="0.3" />
+        <path d="M60 10 L60 30 M60 90 L60 110 M10 60 L30 60 M90 60 L110 60" stroke="white" stroke-width="4" stroke-linecap="round" />
+        <circle cx="60" cy="60" r="20" fill="white" />
+      </svg>
+      <div class="app-loader__spinner" role="status" aria-label="Loading"></div>
+      <div class="app-loader__text">AI Funnel Platform</div>
+      <div class="app-loader__subtitle">Initializing application...</div>
+      <div class="app-loader__progress">
+        <div class="app-loader__progress-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- React Root Container -->
+  <div id="root"></div>
+
+  <!-- Pre-initialization Scripts -->
+  <script>
+    // Environment detection
+    window.__ENV__ = {
+      isDev: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1',
+      isProd: window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1'
+    };
+
+    // Browser compatibility check
+    (function checkBrowserCompatibility() {
+      const features = {
+        promises: typeof Promise !== 'undefined',
+        fetch: typeof fetch !== 'undefined',
+        weakMap: typeof WeakMap !== 'undefined',
+        localStorage: (function() {
+          try {
+            localStorage.setItem('__test__', '1');
+            localStorage.removeItem('__test__');
+            return true;
+          } catch (e) {
+            return false;
+          }
+        })(),
+        es6: (function() {
+          try {
+            eval('const test = () => {};');
+            return true;
+          } catch (e) {
+            return false;
+          }
+        })()
+      };
+
+      const unsupported = Object.keys(features).filter(key => !features[key]);
+
+      if (unsupported.length > 0) {
+        document.body.innerHTML = '<div style="position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:white;text-align:center;font-family:system-ui,sans-serif;"><h1 style="font-size:2rem;font-weight:900;margin-bottom:1rem;">Browser Not Supported</h1><p style="font-size:1.125rem;max-width:600px;margin-bottom:2rem;">Your browser is missing: ' + unsupported.join(', ') + '</p><p style="font-size:0.938rem;opacity:0.9;">Please upgrade to Chrome 90+, Firefox 88+, Safari 14+, or Edge 90+</p></div>';
+        return false;
+      }
+      return true;
+    })();
+
+    // Performance monitoring
+    if (window.performance && window.performance.timing) {
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const timing = window.performance.timing;
+          const loadTime = timing.loadEventEnd - timing.navigationStart;
+          const domReady = timing.domContentLoadedEventEnd - timing.navigationStart;
+          
+          if (window.__ENV__.isDev) {
+            console.log('%c⚡ Performance Metrics', 'font-weight:bold;font-size:14px;color:#667eea');
+            console.log('Load Time:', loadTime + 'ms');
+            console.log('DOM Ready:', domReady + 'ms');
+          }
+        }, 0);
+      });
+    }
+
+    // Remove loader when app is mounted
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        document.body.classList.add('app-ready');
+        setTimeout(function() {
+          const loader = document.getElementById('app-loader');
+          if (loader) loader.remove();
+        }, 300);
+      }, 500);
+    });
+
+    // Global error handler
+    window.addEventListener('error', function(event) {
+      console.error('Global Error:', event.error);
+    });
+
+    window.addEventListener('unhandledrejection', function(event) {
+      console.error('Unhandled Promise:', event.reason);
+    });
+  </script>
+
+  <!-- Vite Module Entry Point -->
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+</html>

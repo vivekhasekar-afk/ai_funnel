@@ -1,0 +1,358 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Urgency Hero -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 0 0 32px 0;">
+    <tr>
+        <td style="text-align: center; padding: 36px; background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); border-radius: 12px; box-shadow: 0 8px 24px rgba(245, 158, 11, 0.3); position: relative; overflow: hidden;">
+            <!-- Animated Alert Background -->
+            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.05) 35px, rgba(255,255,255,.05) 70px); opacity: 0.5;"></div>
+            
+            <div style="position: relative; z-index: 1;">
+                <span style="font-size: 64px; line-height: 1; display: block; margin-bottom: 16px;">⏰</span>
+                <h2 style="margin: 0; font-size: 32px; font-weight: 700; color: #ffffff; line-height: 1.2;">
+                    Your Trial is Ending Soon!
+                </h2>
+                <p style="margin: 12px 0 0 0; font-size: 18px; color: rgba(255,255,255,0.95);">
+                    Only {{ days_remaining|default('3') }} days left to upgrade
+                </p>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<!-- Greeting -->
+<p style="font-size: 18px; line-height: 1.6; color: #2d3748; margin: 0 0 16px 0;">
+    Hi <strong>{{ user_name }}</strong>,
+</p>
+
+<p style="font-size: 16px; line-height: 1.6; color: #4a5568; margin: 0 0 24px 0;">
+    We hope you've been enjoying {{ project_name }}! Your free trial will end in <strong style="color: #d97706;">{{ days_remaining|default('3') }} days</strong> on <strong>{{ trial_end_date|default('January 15, 2025') }}</strong>.
+</p>
+
+<!-- Trial Summary Card -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 0 0 32px 0;">
+    <tr>
+        <td style="background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%); border: 2px solid #e2e8f0; border-radius: 12px; padding: 32px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+            <h3 style="margin: 0 0 24px 0; font-size: 20px; font-weight: 700; color: #1a202c; text-align: center;">
+                📊 Your Trial Performance
+            </h3>
+            
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                <tr>
+                    <!-- Funnels Created -->
+                    <td style="width: 33.33%; text-align: center; padding: 16px; vertical-align: top; border-right: 1px solid #cbd5e0;">
+                        <div style="background: #ffffff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                            <p style="color: #667eea; margin: 0; font-size: 42px; font-weight: 700; line-height: 1;">{{ funnels_created|default('5') }}</p>
+                            <p style="color: #718096; margin: 8px 0 0 0; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">Funnels Created</p>
+                        </div>
+                    </td>
+                    
+                    <!-- Leads Captured -->
+                    <td style="width: 33.33%; text-align: center; padding: 16px; vertical-align: top; border-right: 1px solid #cbd5e0;">
+                        <div style="background: #ffffff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                            <p style="color: #10b981; margin: 0; font-size: 42px; font-weight: 700; line-height: 1;">{{ leads_captured|default('127') }}</p>
+                            <p style="color: #718096; margin: 8px 0 0 0; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">Leads Captured</p>
+                        </div>
+                    </td>
+                    
+                    <!-- Conversion Rate -->
+                    <td style="width: 33.33%; text-align: center; padding: 16px; vertical-align: top;">
+                        <div style="background: #ffffff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                            <p style="color: #f59e0b; margin: 0; font-size: 42px; font-weight: 700; line-height: 1;">{{ conversion_rate|default('68') }}%</p>
+                            <p style="color: #718096; margin: 8px 0 0 0; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">Conversion Rate</p>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            
+            <div style="text-align: center; margin-top: 20px; padding-top: 20px; border-top: 2px dashed #cbd5e0;">
+                <p style="margin: 0; font-size: 15px; color: #4a5568; line-height: 1.6;">
+                    <strong style="color: #1a202c;">Great progress!</strong> Don't lose your data and momentum. Upgrade now to keep growing! 🚀
+                </p>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<!-- Countdown Timer -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 0 0 32px 0;">
+    <tr>
+        <td class="card card-warning" style="background: linear-gradient(135deg, #fff3cd 0%, #ffe69c 100%); border-left: 4px solid #f59e0b; border-radius: 10px; padding: 24px;">
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                <tr>
+                    <td style="width: 48px; vertical-align: top; padding-right: 16px;">
+                        <span style="font-size: 40px;">⏳</span>
+                    </td>
+                    <td>
+                        <p style="margin: 0 0 8px 0; font-weight: 700; color: #1a202c; font-size: 18px;">
+                            Time is Running Out!
+                        </p>
+                        <p style="margin: 0; font-size: 15px; color: #4a5568; line-height: 1.6;">
+                            Your trial ends on <strong style="color: #d97706;">{{ trial_end_date|default('January 15, 2025 at 11:59 PM') }}</strong>. After that, you'll lose access to:
+                        </p>
+                        <ul style="margin: 12px 0 0 0; padding-left: 20px; color: #4a5568; font-size: 14px; line-height: 1.6;">
+                            <li style="margin-bottom: 6px;">All your created funnels and data</li>
+                            <li style="margin-bottom: 6px;">Lead capture capabilities</li>
+                            <li style="margin-bottom: 6px;">Analytics and insights</li>
+                            <li style="margin-bottom: 0;">Premium features and integrations</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<!-- Pricing Plans -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 0 0 32px 0;">
+    <tr>
+        <td>
+            <h3 style="margin: 0 0 24px 0; font-size: 24px; font-weight: 700; color: #1a202c; text-align: center;">
+                🎯 Choose Your Plan
+            </h3>
+        </td>
+    </tr>
+</table>
+
+<!-- Pricing Cards -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 0 0 32px 0;">
+    <tr>
+        <!-- Starter Plan -->
+        <td style="width: 50%; padding: 0 8px 0 0; vertical-align: top;">
+            <div style="background: #ffffff; border: 2px solid #e2e8f0; border-radius: 12px; padding: 28px; text-align: center; height: 100%;">
+                <p style="margin: 0 0 8px 0; font-size: 18px; font-weight: 700; color: #1a202c;">Starter</p>
+                <p style="margin: 0 0 16px 0;">
+                    <span style="font-size: 42px; font-weight: 700; color: #667eea; line-height: 1;">$29</span>
+                    <span style="font-size: 16px; color: #718096;">/mo</span>
+                </p>
+                <ul style="margin: 0 0 20px 0; padding: 0; list-style: none; text-align: left; font-size: 14px; color: #4a5568;">
+                    <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #10b981;">✓</span> 5 Active Funnels
+                    </li>
+                    <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #10b981;">✓</span> 1,000 Leads/month
+                    </li>
+                    <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #10b981;">✓</span> Basic Analytics
+                    </li>
+                    <li style="margin-bottom: 0; padding-left: 24px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #10b981;">✓</span> Email Support
+                    </li>
+                </ul>
+                <a href="{{ upgrade_url }}?plan=starter" style="display: block; padding: 14px 24px; font-size: 16px; font-weight: 600; color: #667eea !important; background: #ffffff; border: 2px solid #667eea; border-radius: 8px; text-decoration: none; transition: all 0.2s;">
+                    Choose Starter
+                </a>
+            </div>
+        </td>
+        
+        <!-- Pro Plan (Recommended) -->
+        <td style="width: 50%; padding: 0 0 0 8px; vertical-align: top;">
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12px; padding: 28px; text-align: center; height: 100%; box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3); position: relative;">
+                <div style="position: absolute; top: -12px; right: 20px; background: #10b981; color: #ffffff; padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Popular</div>
+                
+                <p style="margin: 0 0 8px 0; font-size: 18px; font-weight: 700; color: #ffffff;">Pro</p>
+                <p style="margin: 0 0 16px 0;">
+                    <span style="font-size: 42px; font-weight: 700; color: #ffffff; line-height: 1;">$79</span>
+                    <span style="font-size: 16px; color: rgba(255,255,255,0.9);">/mo</span>
+                </p>
+                <ul style="margin: 0 0 20px 0; padding: 0; list-style: none; text-align: left; font-size: 14px; color: rgba(255,255,255,0.95);">
+                    <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">
+                        <span style="position: absolute; left: 0;">✓</span> Unlimited Funnels
+                    </li>
+                    <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">
+                        <span style="position: absolute; left: 0;">✓</span> 10,000 Leads/month
+                    </li>
+                    <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">
+                        <span style="position: absolute; left: 0;">✓</span> Advanced Analytics
+                    </li>
+                    <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">
+                        <span style="position: absolute; left: 0;">✓</span> Priority Support
+                    </li>
+                    <li style="margin-bottom: 0; padding-left: 24px; position: relative;">
+                        <span style="position: absolute; left: 0;">✓</span> All Integrations
+                    </li>
+                </ul>
+                <a href="{{ upgrade_url }}?plan=pro" style="display: block; padding: 14px 24px; font-size: 16px; font-weight: 600; color: #667eea !important; background: #ffffff; border-radius: 8px; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+                    Choose Pro
+                </a>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<!-- Special Offer -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 0 0 32px 0;">
+    <tr>
+        <td class="card card-success" style="background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%); border-left: 4px solid #10b981; border-radius: 10px; padding: 24px; text-align: center;">
+            <p style="margin: 0 0 12px 0; font-size: 28px;">🎁</p>
+            <p style="margin: 0 0 8px 0; font-weight: 700; color: #1a202c; font-size: 20px;">
+                Special Offer: Get 20% Off!
+            </p>
+            <p style="margin: 0 0 16px 0; font-size: 15px; color: #4a5568; line-height: 1.6;">
+                Upgrade within the next <strong style="color: #059669;">{{ days_remaining|default('3') }} days</strong> and get <strong style="color: #059669;">20% off your first 3 months</strong>. Use code: <strong style="background: #ffffff; padding: 4px 12px; border-radius: 4px; color: #10b981; font-family: monospace;">TRIAL20</strong>
+            </p>
+            <p style="margin: 0; font-size: 13px; color: #718096;">
+                Offer expires when your trial ends
+            </p>
+        </td>
+    </tr>
+</table>
+
+<!-- Primary CTA -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+    <tr>
+        <td class="button-wrapper" style="text-align: center; padding: 16px 0 32px 0;">
+            <a href="{{ upgrade_url }}" class="button" style="display: inline-block; padding: 20px 56px; font-size: 20px; font-weight: 700; color: #ffffff !important; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 10px; text-decoration: none; box-shadow: 0 8px 16px rgba(102, 126, 234, 0.4); text-transform: uppercase; letter-spacing: 0.5px;">
+                🚀 Upgrade Now & Save 20%
+            </a>
+        </td>
+    </tr>
+</table>
+
+<!-- Divider -->
+<div class="divider" style="height: 1px; background: linear-gradient(to right, transparent, #e2e8f0, transparent); margin: 40px 0;"></div>
+
+<!-- What Happens Next -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 32px 0;">
+    <tr>
+        <td class="card card-info" style="background: linear-gradient(135deg, #e7f3ff 0%, #cfe2ff 100%); border-left: 4px solid #2196f3; border-radius: 10px; padding: 24px;">
+            <p style="margin: 0 0 16px 0; font-weight: 700; color: #1a202c; font-size: 18px;">
+                ℹ️ What Happens After Trial?
+            </p>
+            
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                <tr>
+                    <td style="padding: 12px 0; border-bottom: 1px solid rgba(33, 150, 243, 0.2);">
+                        <p style="margin: 0; font-size: 15px; color: #4a5568;">
+                            <strong style="color: #2196f3;">If you upgrade:</strong> Keep all your data, leads, and funnels. Plus get 20% off!
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px 0;">
+                        <p style="margin: 0; font-size: 15px; color: #4a5568;">
+                            <strong style="color: #2196f3;">If you don't upgrade:</strong> Your account will be downgraded to the free plan (limited features) and some data may be archived.
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<!-- Testimonials -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 32px 0;">
+    <tr>
+        <td>
+            <h3 style="margin: 0 0 20px 0; font-size: 20px; font-weight: 700; color: #1a202c; text-align: center;">
+                💬 What Our Users Say
+            </h3>
+        </td>
+    </tr>
+</table>
+
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 0 0 16px 0;">
+    <tr>
+        <td style="background: #ffffff; border: 2px solid #e2e8f0; border-radius: 10px; padding: 20px;">
+            <p style="margin: 0 0 12px 0; font-size: 14px; color: #4a5568; line-height: 1.6; font-style: italic;">
+                "Upgrading was the best decision. I've captured over 500 leads in my first month and my conversion rate is through the roof!"
+            </p>
+            <p style="margin: 0; font-size: 14px; color: #718096;">
+                <strong style="color: #1a202c;">— Sarah M.</strong>, Marketing Director
+            </p>
+            <p style="margin: 4px 0 0 0; color: #f59e0b; font-size: 16px;">⭐⭐⭐⭐⭐</p>
+        </td>
+    </tr>
+</table>
+
+<!-- Money-Back Guarantee -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 32px 0;">
+    <tr>
+        <td style="text-align: center; padding: 28px; background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border: 2px solid #10b981; border-radius: 10px;">
+            <p style="margin: 0 0 12px 0; font-size: 40px;">🛡️</p>
+            <p style="margin: 0 0 8px 0; font-weight: 700; color: #1a202c; font-size: 18px;">
+                30-Day Money-Back Guarantee
+            </p>
+            <p style="margin: 0; font-size: 14px; color: #4a5568; line-height: 1.6;">
+                Not satisfied? Get a full refund within 30 days, no questions asked.
+            </p>
+        </td>
+    </tr>
+</table>
+
+<!-- FAQ -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 32px 0;">
+    <tr>
+        <td style="background: #f7fafc; border-radius: 10px; padding: 24px;">
+            <p style="margin: 0 0 16px 0; font-size: 16px; font-weight: 600; color: #2d3748;">
+                ❓ Common Questions
+            </p>
+            
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                <tr>
+                    <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0;">
+                        <p style="margin: 0 0 6px 0; font-size: 14px; font-weight: 600; color: #1a202c;">Can I change plans later?</p>
+                        <p style="margin: 0; font-size: 13px; color: #718096;">Yes, upgrade or downgrade anytime from your account settings.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0;">
+                        <p style="margin: 0 0 6px 0; font-size: 14px; font-weight: 600; color: #1a202c;">What payment methods do you accept?</p>
+                        <p style="margin: 0; font-size: 13px; color: #718096;">We accept all major credit cards and PayPal.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px 0;">
+                        <p style="margin: 0 0 6px 0; font-size: 14px; font-weight: 600; color: #1a202c;">Can I cancel anytime?</p>
+                        <p style="margin: 0; font-size: 13px; color: #718096;">Absolutely! No long-term contracts. Cancel anytime with one click.</p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<!-- Need Help -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 32px 0;">
+    <tr>
+        <td style="text-align: center; padding: 20px; background: #f7fafc; border-radius: 8px; border: 1px dashed #cbd5e0;">
+            <p style="margin: 0 0 8px 0; font-size: 15px; color: #2d3748; font-weight: 600;">
+                💬 Have Questions?
+            </p>
+            <p style="margin: 0 0 12px 0; font-size: 14px; color: #4a5568;">
+                Our team is here to help you choose the right plan.
+            </p>
+            <a href="mailto:{{ support_email }}" style="font-size: 14px; color: #667eea; font-weight: 600; text-decoration: none;">
+                Contact Support →
+            </a>
+        </td>
+    </tr>
+</table>
+
+<!-- Closing -->
+<p style="font-size: 16px; line-height: 1.6; color: #4a5568; margin: 32px 0 0 0;">
+    Don't let your progress go to waste! Upgrade today and continue your success journey with {{ project_name }}.
+</p>
+
+<p style="font-size: 16px; line-height: 1.6; color: #2d3748; margin: 16px 0 0 0;">
+    <strong>We'd love to see you continue!</strong><br>
+    The {{ project_name }} Team 🚀
+</p>
+
+<!-- P.S. Section -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 32px 0 0 0;">
+    <tr>
+        <td style="border-top: 2px solid #e2e8f0; padding-top: 20px;">
+            <p style="margin: 0; font-size: 14px; color: #718096; font-style: italic;">
+                <strong>P.S.</strong> Remember to use code <strong style="background: #fff3cd; padding: 2px 8px; border-radius: 4px; color: #d97706; font-family: monospace;">TRIAL20</strong> for 20% off when you upgrade. This offer won't last forever! ⏰
+            </p>
+        </td>
+    </tr>
+</table>
+
+{% endblock %}
+
+{% block footer %}
+{{ super() }}
+{% endblock %}

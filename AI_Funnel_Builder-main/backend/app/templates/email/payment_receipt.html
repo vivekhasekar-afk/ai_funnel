@@ -1,0 +1,371 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Receipt Header -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 0 0 32px 0;">
+    <tr>
+        <td style="text-align: center; padding: 36px; background: linear-gradient(135deg, #10b981 0%, #059669 100%); border-radius: 12px; box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3);">
+            <span style="font-size: 64px; line-height: 1; display: block; margin-bottom: 16px;">✅</span>
+            <h2 style="margin: 0; font-size: 32px; font-weight: 700; color: #ffffff; line-height: 1.2;">
+                Payment Successful!
+            </h2>
+            <p style="margin: 12px 0 0 0; font-size: 18px; color: rgba(255,255,255,0.95);">
+                Thank you for your payment
+            </p>
+        </td>
+    </tr>
+</table>
+
+<!-- Greeting -->
+<p style="font-size: 18px; line-height: 1.6; color: #2d3748; margin: 0 0 16px 0;">
+    Hi <strong>{{ user_name }}</strong>,
+</p>
+
+<p style="font-size: 16px; line-height: 1.6; color: #4a5568; margin: 0 0 32px 0;">
+    Thank you for your payment! This email confirms that we've successfully processed your payment for {{ project_name }}. Your receipt details are below.
+</p>
+
+<!-- Receipt Number -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 0 0 32px 0;">
+    <tr>
+        <td style="text-align: center; padding: 20px; background: #f7fafc; border: 2px dashed #cbd5e0; border-radius: 10px;">
+            <p style="margin: 0 0 8px 0; font-size: 13px; color: #718096; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Receipt Number</p>
+            <p style="margin: 0; font-size: 24px; color: #1a202c; font-weight: 700; font-family: monospace;">{{ receipt_number|default('INV-2024-001234') }}</p>
+        </td>
+    </tr>
+</table>
+
+<!-- Payment Summary Card -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 0 0 32px 0;">
+    <tr>
+        <td style="background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%); border: 2px solid #e2e8f0; border-radius: 12px; padding: 32px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+            <h3 style="margin: 0 0 24px 0; font-size: 20px; font-weight: 700; color: #1a202c; border-bottom: 2px solid #e2e8f0; padding-bottom: 12px;">
+                💳 Payment Details
+            </h3>
+            
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                <!-- Date -->
+                <tr>
+                    <td style="padding: 14px 0; border-bottom: 1px solid #e2e8f0;">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                                <td style="width: 40%; color: #718096; font-size: 15px; font-weight: 600;">Date:</td>
+                                <td style="text-align: right; color: #1a202c; font-size: 15px; font-weight: 600;">{{ payment_date|default('January 15, 2025') }}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                
+                <!-- Payment Method -->
+                <tr>
+                    <td style="padding: 14px 0; border-bottom: 1px solid #e2e8f0;">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                                <td style="width: 40%; color: #718096; font-size: 15px; font-weight: 600;">Payment Method:</td>
+                                <td style="text-align: right; color: #1a202c; font-size: 15px; font-weight: 600;">{{ payment_method|default('Visa •••• 4242') }}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                
+                <!-- Transaction ID -->
+                <tr>
+                    <td style="padding: 14px 0; border-bottom: 1px solid #e2e8f0;">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                                <td style="width: 40%; color: #718096; font-size: 15px; font-weight: 600;">Transaction ID:</td>
+                                <td style="text-align: right; color: #718096; font-size: 13px; font-family: monospace;">{{ transaction_id|default('txn_1234567890abcdef') }}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                
+                <!-- Billing Period -->
+                <tr>
+                    <td style="padding: 14px 0; border-bottom: 1px solid #e2e8f0;">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                                <td style="width: 40%; color: #718096; font-size: 15px; font-weight: 600;">Billing Period:</td>
+                                <td style="text-align: right; color: #1a202c; font-size: 15px; font-weight: 600;">{{ billing_period|default('Jan 15 - Feb 14, 2025') }}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                
+                <!-- Next Billing Date -->
+                <tr>
+                    <td style="padding: 14px 0;">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                                <td style="width: 40%; color: #718096; font-size: 15px; font-weight: 600;">Next Billing:</td>
+                                <td style="text-align: right; color: #1a202c; font-size: 15px; font-weight: 600;">{{ next_billing_date|default('February 15, 2025') }}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<!-- Itemized Charges -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 0 0 32px 0;">
+    <tr>
+        <td style="background: #ffffff; border: 2px solid #e2e8f0; border-radius: 12px; padding: 32px;">
+            <h3 style="margin: 0 0 20px 0; font-size: 20px; font-weight: 700; color: #1a202c; border-bottom: 2px solid #e2e8f0; padding-bottom: 12px;">
+                📋 Charges
+            </h3>
+            
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                <!-- Item 1 -->
+                <tr>
+                    <td style="padding: 16px 0; border-bottom: 1px solid #e2e8f0;">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                                <td style="vertical-align: top;">
+                                    <p style="margin: 0 0 4px 0; font-size: 16px; font-weight: 600; color: #1a202c;">{{ plan_name|default('Pro Plan') }}</p>
+                                    <p style="margin: 0; font-size: 13px; color: #718096;">{{ plan_description|default('Monthly subscription - Unlimited funnels & leads') }}</p>
+                                </td>
+                                <td style="text-align: right; vertical-align: top; white-space: nowrap; padding-left: 20px;">
+                                    <p style="margin: 0; font-size: 18px; font-weight: 700; color: #1a202c;">${{ plan_amount|default('79.00') }}</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                
+                <!-- Add-ons (if any) -->
+                {% if addons %}
+                {% for addon in addons %}
+                <tr>
+                    <td style="padding: 16px 0; border-bottom: 1px solid #e2e8f0;">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                                <td style="vertical-align: top;">
+                                    <p style="margin: 0 0 4px 0; font-size: 16px; font-weight: 600; color: #1a202c;">{{ addon.name }}</p>
+                                    <p style="margin: 0; font-size: 13px; color: #718096;">{{ addon.description }}</p>
+                                </td>
+                                <td style="text-align: right; vertical-align: top; white-space: nowrap; padding-left: 20px;">
+                                    <p style="margin: 0; font-size: 18px; font-weight: 700; color: #1a202c;">${{ addon.amount }}</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                {% endfor %}
+                {% endif %}
+                
+                <!-- Subtotal -->
+                <tr>
+                    <td style="padding: 16px 0; border-bottom: 1px solid #e2e8f0;">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                                <td style="color: #718096; font-size: 15px; font-weight: 600;">Subtotal:</td>
+                                <td style="text-align: right; color: #1a202c; font-size: 16px; font-weight: 600; white-space: nowrap;">${{ subtotal|default('79.00') }}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                
+                <!-- Discount (if any) -->
+                {% if discount_amount %}
+                <tr>
+                    <td style="padding: 16px 0; border-bottom: 1px solid #e2e8f0;">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                                <td style="vertical-align: top;">
+                                    <p style="margin: 0 0 4px 0; font-size: 15px; font-weight: 600; color: #10b981;">Discount:</p>
+                                    <p style="margin: 0; font-size: 13px; color: #718096;">{{ discount_code|default('Promotional discount') }}</p>
+                                </td>
+                                <td style="text-align: right; color: #10b981; font-size: 16px; font-weight: 700; white-space: nowrap; vertical-align: top; padding-left: 20px;">-${{ discount_amount }}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                {% endif %}
+                
+                <!-- Tax -->
+                {% if tax_amount %}
+                <tr>
+                    <td style="padding: 16px 0; border-bottom: 1px solid #e2e8f0;">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                                <td style="color: #718096; font-size: 15px; font-weight: 600;">Tax ({{ tax_rate|default('10') }}%):</td>
+                                <td style="text-align: right; color: #1a202c; font-size: 16px; font-weight: 600; white-space: nowrap;">${{ tax_amount }}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                {% endif %}
+                
+                <!-- Total -->
+                <tr>
+                    <td style="padding: 20px 0 0 0;">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                                <td style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 16px 20px; border-radius: 8px;">
+                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                        <tr>
+                                            <td style="color: rgba(255,255,255,0.95); font-size: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Total Paid:</td>
+                                            <td style="text-align: right; color: #ffffff; font-size: 32px; font-weight: 700; white-space: nowrap;">${{ total_amount|default('79.00') }}</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<!-- Billing Information -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 0 0 32px 0;">
+    <tr>
+        <td style="background: #f7fafc; border: 2px solid #e2e8f0; border-radius: 10px; padding: 24px;">
+            <h3 style="margin: 0 0 16px 0; font-size: 18px; font-weight: 700; color: #1a202c;">
+                📍 Billing Address
+            </h3>
+            <p style="margin: 0; font-size: 15px; color: #4a5568; line-height: 1.8;">
+                <strong style="color: #1a202c;">{{ billing_name|default(user_name) }}</strong><br>
+                {% if billing_company %}{{ billing_company }}<br>{% endif %}
+                {{ billing_address_line1|default('123 Main Street') }}<br>
+                {% if billing_address_line2 %}{{ billing_address_line2 }}<br>{% endif %}
+                {{ billing_city|default('San Francisco') }}, {{ billing_state|default('CA') }} {{ billing_zip|default('94102') }}<br>
+                {{ billing_country|default('United States') }}
+            </p>
+        </td>
+    </tr>
+</table>
+
+<!-- Download Invoice CTA -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+    <tr>
+        <td class="button-wrapper" style="text-align: center; padding: 16px 0 32px 0;">
+            <a href="{{ invoice_pdf_url|default('#') }}" class="button" style="display: inline-block; padding: 16px 40px; font-size: 16px; font-weight: 600; color: #ffffff !important; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 8px; text-decoration: none; box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);">
+                📄 Download PDF Invoice
+            </a>
+        </td>
+    </tr>
+</table>
+
+<!-- Divider -->
+<div class="divider" style="height: 1px; background: linear-gradient(to right, transparent, #e2e8f0, transparent); margin: 40px 0;"></div>
+
+<!-- What's Next -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 32px 0;">
+    <tr>
+        <td class="card card-success" style="background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%); border-left: 4px solid #10b981; border-radius: 10px; padding: 24px;">
+            <p style="margin: 0 0 16px 0; font-weight: 700; color: #1a202c; font-size: 18px;">
+                🎉 You're All Set!
+            </p>
+            <p style="margin: 0 0 16px 0; font-size: 15px; color: #4a5568; line-height: 1.6;">
+                Your payment was successful and your subscription is active. You have full access to all {{ plan_name|default('Pro') }} features.
+            </p>
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                <tr>
+                    <td style="padding: 8px 0;">
+                        <a href="{{ dashboard_url }}" style="color: #10b981; font-size: 15px; text-decoration: none; font-weight: 600;">
+                            → Go to your dashboard
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px 0;">
+                        <a href="{{ billing_url|default('#') }}" style="color: #10b981; font-size: 15px; text-decoration: none; font-weight: 600;">
+                            → Manage your subscription
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px 0;">
+                        <a href="{{ receipts_url|default('#') }}" style="color: #10b981; font-size: 15px; text-decoration: none; font-weight: 600;">
+                            → View all receipts
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<!-- Payment Confirmation -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 32px 0;">
+    <tr>
+        <td class="card card-info" style="background: linear-gradient(135deg, #e7f3ff 0%, #cfe2ff 100%); border-left: 4px solid #2196f3; border-radius: 10px; padding: 24px;">
+            <p style="margin: 0 0 12px 0; font-weight: 600; color: #1a202c; font-size: 16px;">
+                ℹ️ Important Information
+            </p>
+            <ul style="margin: 0; padding-left: 20px; color: #4a5568; font-size: 14px; line-height: 1.8;">
+                <li style="margin-bottom: 8px;">This is your official receipt for tax purposes</li>
+                <li style="margin-bottom: 8px;">Your next billing date is <strong style="color: #1a202c;">{{ next_billing_date|default('February 15, 2025') }}</strong></li>
+                <li style="margin-bottom: 8px;">You'll receive an email reminder 3 days before your next billing</li>
+                <li style="margin-bottom: 0;">You can update your payment method or cancel anytime from your account settings</li>
+            </ul>
+        </td>
+    </tr>
+</table>
+
+<!-- Support Section -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 32px 0;">
+    <tr>
+        <td style="text-align: center; padding: 24px; background: #f7fafc; border-radius: 10px; border: 2px solid #e2e8f0;">
+            <p style="margin: 0 0 12px 0; font-size: 16px; color: #2d3748; font-weight: 600;">
+                💬 Questions About Your Payment?
+            </p>
+            <p style="margin: 0 0 16px 0; font-size: 14px; color: #4a5568; line-height: 1.6;">
+                If you have any questions about this charge or need assistance,<br>
+                our billing team is here to help!
+            </p>
+            <a href="mailto:{{ billing_email|default(support_email) }}" style="display: inline-block; padding: 12px 28px; font-size: 15px; font-weight: 600; color: #667eea !important; background: #ffffff; border: 2px solid #667eea; border-radius: 8px; text-decoration: none;">
+                Contact Billing Support
+            </a>
+        </td>
+    </tr>
+</table>
+
+<!-- Tax Information (if applicable) -->
+{% if tax_id %}
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 32px 0;">
+    <tr>
+        <td style="background: #f7fafc; border-radius: 8px; padding: 20px; border: 1px solid #e2e8f0;">
+            <p style="margin: 0 0 8px 0; font-size: 14px; color: #2d3748; font-weight: 600;">
+                Company Information
+            </p>
+            <p style="margin: 0; font-size: 13px; color: #718096; line-height: 1.6;">
+                {{ company_name|default(project_name) }}<br>
+                Tax ID: {{ tax_id }}<br>
+                {{ company_address|default('123 Business Ave, Suite 100, San Francisco, CA 94102') }}
+            </p>
+        </td>
+    </tr>
+</table>
+{% endif %}
+
+<!-- Closing -->
+<p style="font-size: 16px; line-height: 1.6; color: #4a5568; margin: 32px 0 0 0;">
+    Thank you for being a valued {{ project_name }} customer! We appreciate your business and look forward to helping you achieve your goals.
+</p>
+
+<p style="font-size: 16px; line-height: 1.6; color: #2d3748; margin: 16px 0 0 0;">
+    <strong>Best regards,</strong><br>
+    The {{ project_name }} Team 💚
+</p>
+
+<!-- P.S. Section -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 32px 0 0 0;">
+    <tr>
+        <td style="border-top: 2px solid #e2e8f0; padding-top: 20px;">
+            <p style="margin: 0; font-size: 14px; color: #718096; font-style: italic;">
+                <strong>P.S.</strong> Keep this email for your records. You can also access all your receipts and invoices anytime from your <a href="{{ billing_url|default('#') }}" style="color: #667eea; text-decoration: none; font-weight: 600;">account dashboard</a>.
+            </p>
+        </td>
+    </tr>
+</table>
+
+{% endblock %}
+
+{% block footer %}
+{{ super() }}
+{% endblock %}

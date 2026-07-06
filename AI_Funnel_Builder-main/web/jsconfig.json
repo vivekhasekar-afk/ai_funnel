@@ -1,0 +1,63 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@components/*": ["./src/components/*"],
+      "@ui/*": ["./src/components/ui/*"],
+      "@layout/*": ["./src/components/layout/*"],
+      "@common/*": ["./src/components/common/*"],
+      "@features/*": ["./src/features/*"],
+      "@lib/*": ["./src/lib/*"],
+      "@api/*": ["./src/lib/api/*"],
+      "@hooks/*": ["./src/lib/hooks/*"],
+      "@utils/*": ["./src/lib/utils/*"],
+      "@constants/*": ["./src/lib/constants/*"],
+      "@store/*": ["./src/store/*"],
+      "@slices/*": ["./src/store/slices/*"],
+      "@config/*": ["./src/config/*"],
+      "@schemas/*": ["./src/schemas/*"],
+      "@routes/*": ["./src/routes/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@public/*": ["./public/*"]
+    },
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "strict": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "skipLibCheck": true,
+    "allowJs": true,
+    "checkJs": false,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "target": "ESNext",
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "useDefineForClassFields": true,
+    "types": []
+  },
+  "include": [
+    "src/**/*",
+    "src/**/*.json",
+    "vite.config.js",
+    "tailwind.config.js",
+    "postcss.config.js"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "build",
+    "coverage",
+    "public",
+    "**/*.spec.js",
+    "**/*.test.js",
+    "**/__tests__/**",
+    "**/__mocks__/**"
+  ]
+}

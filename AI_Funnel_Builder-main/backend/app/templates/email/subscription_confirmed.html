@@ -1,0 +1,347 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Confirmation -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 0 0 32px 0;">
+    <tr>
+        <td style="text-align: center; padding: 36px; background: linear-gradient(135deg, #10b981 0%, #059669 100%); border-radius: 12px; box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3);">
+            <span style="font-size: 64px; line-height: 1; display: block; margin-bottom: 16px;">✅</span>
+            <h2 style="margin: 0; font-size: 32px; font-weight: 700; color: #ffffff; line-height: 1.2;">
+                Subscription Confirmed!
+            </h2>
+            <p style="margin: 12px 0 0 0; font-size: 18px; color: rgba(255,255,255,0.95);">
+                Welcome to {{ plan_name|default('Premium') }} 🎉
+            </p>
+        </td>
+    </tr>
+</table>
+
+<!-- Greeting -->
+<p style="font-size: 18px; line-height: 1.6; color: #2d3748; margin: 0 0 16px 0;">
+    Hi <strong>{{ user_name }}</strong>,
+</p>
+
+<p style="font-size: 16px; line-height: 1.6; color: #4a5568; margin: 0 0 32px 0;">
+    Thank you for subscribing to {{ project_name }}! Your <strong style="color: #10b981;">{{ plan_name|default('Premium') }}</strong> subscription is now active and you have full access to all features.
+</p>
+
+<!-- Subscription Details Card -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 0 0 32px 0;">
+    <tr>
+        <td style="background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%); border: 2px solid #e2e8f0; border-radius: 12px; padding: 32px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+            <h3 style="margin: 0 0 24px 0; font-size: 20px; font-weight: 700; color: #1a202c; text-align: center;">
+                📋 Your Subscription Details
+            </h3>
+            
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                <!-- Plan Name -->
+                <tr>
+                    <td style="padding: 16px 0; border-bottom: 2px solid #e2e8f0;">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                                <td style="width: 40%; color: #718096; font-size: 15px; font-weight: 600;">Plan:</td>
+                                <td style="text-align: right; color: #1a202c; font-size: 16px; font-weight: 700;">
+                                    <span style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #ffffff; padding: 6px 16px; border-radius: 20px; display: inline-block;">
+                                        {{ plan_name|default('Premium') }}
+                                    </span>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                
+                <!-- Price -->
+                <tr>
+                    <td style="padding: 16px 0; border-bottom: 2px solid #e2e8f0;">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                                <td style="width: 40%; color: #718096; font-size: 15px; font-weight: 600;">Amount:</td>
+                                <td style="text-align: right; color: #10b981; font-size: 24px; font-weight: 700;">${{ amount|default('49.00') }}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                
+                <!-- Billing Cycle -->
+                <tr>
+                    <td style="padding: 16px 0; border-bottom: 2px solid #e2e8f0;">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                                <td style="width: 40%; color: #718096; font-size: 15px; font-weight: 600;">Billing:</td>
+                                <td style="text-align: right; color: #1a202c; font-size: 16px; font-weight: 600;">{{ billing_cycle|default('Monthly') }}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                
+                <!-- Next Billing Date -->
+                <tr>
+                    <td style="padding: 16px 0; border-bottom: 2px solid #e2e8f0;">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                                <td style="width: 40%; color: #718096; font-size: 15px; font-weight: 600;">Next Billing:</td>
+                                <td style="text-align: right; color: #1a202c; font-size: 16px; font-weight: 600;">{{ next_billing_date|default('January 15, 2025') }}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                
+                <!-- Payment Method -->
+                <tr>
+                    <td style="padding: 16px 0;">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                                <td style="width: 40%; color: #718096; font-size: 15px; font-weight: 600;">Payment Method:</td>
+                                <td style="text-align: right; color: #1a202c; font-size: 16px; font-weight: 600;">{{ payment_method|default('•••• 4242') }}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<!-- What's Included -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 0 0 32px 0;">
+    <tr>
+        <td style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12px; padding: 36px;">
+            <h3 style="margin: 0 0 24px 0; font-size: 24px; font-weight: 700; color: #ffffff; text-align: center;">
+                ✨ What's Included in Your Plan
+            </h3>
+            
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                <!-- Feature Row 1 -->
+                <tr>
+                    <td style="width: 50%; padding: 12px; vertical-align: top;">
+                        <div style="background: rgba(255,255,255,0.15); border-radius: 10px; padding: 20px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);">
+                            <p style="margin: 0 0 8px 0; font-size: 32px; text-align: center;">{{ features[0].icon|default('🚀') }}</p>
+                            <p style="margin: 0 0 4px 0; font-size: 16px; font-weight: 600; color: #ffffff; text-align: center;">{{ features[0].title|default('Unlimited Funnels') }}</p>
+                            <p style="margin: 0; font-size: 13px; color: rgba(255,255,255,0.9); text-align: center; line-height: 1.5;">{{ features[0].description|default('Create as many funnels as you need') }}</p>
+                        </div>
+                    </td>
+                    <td style="width: 50%; padding: 12px; vertical-align: top;">
+                        <div style="background: rgba(255,255,255,0.15); border-radius: 10px; padding: 20px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);">
+                            <p style="margin: 0 0 8px 0; font-size: 32px; text-align: center;">{{ features[1].icon|default('🤖') }}</p>
+                            <p style="margin: 0 0 4px 0; font-size: 16px; font-weight: 600; color: #ffffff; text-align: center;">{{ features[1].title|default('AI Generation') }}</p>
+                            <p style="margin: 0; font-size: 13px; color: rgba(255,255,255,0.9); text-align: center; line-height: 1.5;">{{ features[1].description|default('AI-powered funnel builder') }}</p>
+                        </div>
+                    </td>
+                </tr>
+                
+                <!-- Feature Row 2 -->
+                <tr>
+                    <td style="width: 50%; padding: 12px; vertical-align: top;">
+                        <div style="background: rgba(255,255,255,0.15); border-radius: 10px; padding: 20px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);">
+                            <p style="margin: 0 0 8px 0; font-size: 32px; text-align: center;">{{ features[2].icon|default('📊') }}</p>
+                            <p style="margin: 0 0 4px 0; font-size: 16px; font-weight: 600; color: #ffffff; text-align: center;">{{ features[2].title|default('Advanced Analytics') }}</p>
+                            <p style="margin: 0; font-size: 13px; color: rgba(255,255,255,0.9); text-align: center; line-height: 1.5;">{{ features[2].description|default('Deep insights & reports') }}</p>
+                        </div>
+                    </td>
+                    <td style="width: 50%; padding: 12px; vertical-align: top;">
+                        <div style="background: rgba(255,255,255,0.15); border-radius: 10px; padding: 20px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);">
+                            <p style="margin: 0 0 8px 0; font-size: 32px; text-align: center;">{{ features[3].icon|default('🔗') }}</p>
+                            <p style="margin: 0 0 4px 0; font-size: 16px; font-weight: 600; color: #ffffff; text-align: center;">{{ features[3].title|default('Integrations') }}</p>
+                            <p style="margin: 0; font-size: 13px; color: rgba(255,255,255,0.9); text-align: center; line-height: 1.5;">{{ features[3].description|default('Connect all your tools') }}</p>
+                        </div>
+                    </td>
+                </tr>
+                
+                <!-- Feature Row 3 -->
+                <tr>
+                    <td style="width: 50%; padding: 12px; vertical-align: top;">
+                        <div style="background: rgba(255,255,255,0.15); border-radius: 10px; padding: 20px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);">
+                            <p style="margin: 0 0 8px 0; font-size: 32px; text-align: center;">{{ features[4].icon|default('🎨') }}</p>
+                            <p style="margin: 0 0 4px 0; font-size: 16px; font-weight: 600; color: #ffffff; text-align: center;">{{ features[4].title|default('Custom Branding') }}</p>
+                            <p style="margin: 0; font-size: 13px; color: rgba(255,255,255,0.9); text-align: center; line-height: 1.5;">{{ features[4].description|default('Your logo & colors') }}</p>
+                        </div>
+                    </td>
+                    <td style="width: 50%; padding: 12px; vertical-align: top;">
+                        <div style="background: rgba(255,255,255,0.15); border-radius: 10px; padding: 20px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);">
+                            <p style="margin: 0 0 8px 0; font-size: 32px; text-align: center;">{{ features[5].icon|default('💬') }}</p>
+                            <p style="margin: 0 0 4px 0; font-size: 16px; font-weight: 600; color: #ffffff; text-align: center;">{{ features[5].title|default('Priority Support') }}</p>
+                            <p style="margin: 0; font-size: 13px; color: rgba(255,255,255,0.9); text-align: center; line-height: 1.5;">{{ features[5].description|default('24/7 priority assistance') }}</p>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<!-- Get Started CTA -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+    <tr>
+        <td class="button-wrapper" style="text-align: center; padding: 32px 0;">
+            <a href="{{ dashboard_url }}" class="button" style="display: inline-block; padding: 18px 48px; font-size: 18px; font-weight: 600; color: #ffffff !important; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 10px; text-decoration: none; box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);">
+                🚀 Access Your Account
+            </a>
+        </td>
+    </tr>
+</table>
+
+<!-- Divider -->
+<div class="divider" style="height: 1px; background: linear-gradient(to right, transparent, #e2e8f0, transparent); margin: 40px 0;"></div>
+
+<!-- Getting Started Steps -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 32px 0;">
+    <tr>
+        <td>
+            <h3 style="margin: 0 0 24px 0; font-size: 22px; font-weight: 700; color: #1a202c; text-align: center;">
+                🎯 Get Started in 3 Easy Steps
+            </h3>
+        </td>
+    </tr>
+</table>
+
+<!-- Step 1 -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 0 0 20px 0;">
+    <tr>
+        <td style="padding: 24px; background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%); border-left: 4px solid #667eea; border-radius: 10px;">
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                <tr>
+                    <td style="width: 56px; vertical-align: top;">
+                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; color: #ffffff; font-weight: 700; font-size: 24px; text-align: center; line-height: 48px; box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);">1</div>
+                    </td>
+                    <td style="vertical-align: top; padding-left: 16px;">
+                        <p style="margin: 0 0 8px 0; font-size: 18px; font-weight: 600; color: #1a202c;">Create Your First Funnel</p>
+                        <p style="margin: 0; font-size: 15px; color: #4a5568; line-height: 1.6;">Use our AI wizard to generate a high-converting funnel in minutes. Just describe your business goal!</p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<!-- Step 2 -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 0 0 20px 0;">
+    <tr>
+        <td style="padding: 24px; background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%); border-left: 4px solid #10b981; border-radius: 10px;">
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                <tr>
+                    <td style="width: 56px; vertical-align: top;">
+                        <div style="width: 48px; height: 48px; background: #10b981; border-radius: 50%; color: #ffffff; font-weight: 700; font-size: 24px; text-align: center; line-height: 48px; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);">2</div>
+                    </td>
+                    <td style="vertical-align: top; padding-left: 16px;">
+                        <p style="margin: 0 0 8px 0; font-size: 18px; font-weight: 600; color: #1a202c;">Customize Your Branding</p>
+                        <p style="margin: 0; font-size: 15px; color: #4a5568; line-height: 1.6;">Add your logo, brand colors, and custom domain to make it uniquely yours.</p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<!-- Step 3 -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 0 0 32px 0;">
+    <tr>
+        <td style="padding: 24px; background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%); border-left: 4px solid #f59e0b; border-radius: 10px;">
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                <tr>
+                    <td style="width: 56px; vertical-align: top;">
+                        <div style="width: 48px; height: 48px; background: #f59e0b; border-radius: 50%; color: #ffffff; font-weight: 700; font-size: 24px; text-align: center; line-height: 48px; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);">3</div>
+                    </td>
+                    <td style="vertical-align: top; padding-left: 16px;">
+                        <p style="margin: 0 0 8px 0; font-size: 18px; font-weight: 600; color: #1a202c;">Share & Start Capturing Leads</p>
+                        <p style="margin: 0; font-size: 15px; color: #4a5568; line-height: 1.6;">Share your funnel link, embed it on your site, or run ads. Watch the leads roll in!</p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<!-- Support & Resources -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 32px 0;">
+    <tr>
+        <td class="card card-info" style="background: linear-gradient(135deg, #e7f3ff 0%, #cfe2ff 100%); border-left: 4px solid #2196f3; border-radius: 10px; padding: 24px;">
+            <p style="margin: 0 0 16px 0; font-weight: 700; color: #1a202c; font-size: 18px;">
+                💬 We're Here to Help!
+            </p>
+            <p style="margin: 0 0 16px 0; font-size: 15px; color: #4a5568; line-height: 1.6;">
+                As a {{ plan_name|default('Premium') }} member, you get priority support. Our team is available 24/7 to help you succeed.
+            </p>
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                <tr>
+                    <td style="padding: 8px 0;">
+                        <a href="{{ docs_url|default('#') }}" style="color: #2196f3; font-size: 15px; text-decoration: none; font-weight: 600;">
+                            📖 View Documentation →
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px 0;">
+                        <a href="{{ video_tutorials_url|default('#') }}" style="color: #2196f3; font-size: 15px; text-decoration: none; font-weight: 600;">
+                            🎥 Watch Video Tutorials →
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px 0;">
+                        <a href="mailto:{{ support_email }}" style="color: #2196f3; font-size: 15px; text-decoration: none; font-weight: 600;">
+                            ✉️ Contact Priority Support →
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<!-- Billing Management -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 32px 0;">
+    <tr>
+        <td style="background: #f7fafc; border-radius: 10px; padding: 24px; border: 2px solid #e2e8f0;">
+            <p style="margin: 0 0 12px 0; font-size: 16px; font-weight: 600; color: #2d3748;">
+                💳 Manage Your Subscription
+            </p>
+            <p style="margin: 0 0 16px 0; font-size: 14px; color: #4a5568; line-height: 1.6;">
+                You can update your billing details, change your plan, or cancel anytime from your account settings. No long-term contracts or hidden fees.
+            </p>
+            <a href="{{ billing_url|default(dashboard_url) }}" style="font-size: 14px; color: #667eea; font-weight: 600; text-decoration: none;">
+                View Billing Settings →
+            </a>
+        </td>
+    </tr>
+</table>
+
+<!-- Invoice Info -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 32px 0;">
+    <tr>
+        <td style="text-align: center; padding: 20px; background: #f7fafc; border-radius: 8px; border: 1px dashed #cbd5e0;">
+            <p style="margin: 0 0 8px 0; font-size: 14px; color: #4a5568;">
+                Need a receipt or invoice for this payment?
+            </p>
+            <a href="{{ invoice_url|default('#') }}" style="font-size: 14px; color: #667eea; font-weight: 600; text-decoration: none;">
+                Download Invoice →
+            </a>
+        </td>
+    </tr>
+</table>
+
+<!-- Closing -->
+<p style="font-size: 16px; line-height: 1.6; color: #4a5568; margin: 32px 0 0 0;">
+    Thank you for choosing {{ project_name }}. We're committed to helping you achieve your lead generation goals!
+</p>
+
+<p style="font-size: 16px; line-height: 1.6; color: #2d3748; margin: 16px 0 0 0;">
+    <strong>Welcome to the team!</strong><br>
+    The {{ project_name }} Team 🎊
+</p>
+
+<!-- P.S. Section -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 32px 0 0 0;">
+    <tr>
+        <td style="border-top: 2px solid #e2e8f0; padding-top: 20px;">
+            <p style="margin: 0; font-size: 14px; color: #718096; font-style: italic;">
+                <strong>P.S.</strong> Have questions about maximizing your {{ plan_name|default('Premium') }} features? Schedule a free <a href="{{ onboarding_call_url|default('#') }}" style="color: #667eea; text-decoration: none; font-weight: 600;">onboarding call</a> with our team! 📞
+            </p>
+        </td>
+    </tr>
+</table>
+
+{% endblock %}
+
+{% block footer %}
+{{ super() }}
+{% endblock %}

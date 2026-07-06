@@ -1,0 +1,309 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Alert -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 0 0 32px 0;">
+    <tr>
+        <td style="text-align: center; padding: 24px; background: linear-gradient(135deg, #10b981 0%, #059669 100%); border-radius: 12px; box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3);">
+            <span style="font-size: 56px; line-height: 1; display: block; margin-bottom: 16px;">🎯</span>
+            <h2 style="margin: 0; font-size: 28px; font-weight: 700; color: #ffffff; line-height: 1.2;">
+                New Lead Captured!
+            </h2>
+            <p style="margin: 12px 0 0 0; font-size: 16px; color: rgba(255,255,255,0.9);">
+                {{ lead_name|default('Someone') }} just completed your funnel
+            </p>
+        </td>
+    </tr>
+</table>
+
+<!-- Greeting -->
+<p style="font-size: 18px; line-height: 1.6; color: #2d3748; margin: 0 0 16px 0;">
+    Hi <strong>{{ user_name }}</strong>,
+</p>
+
+<p style="font-size: 16px; line-height: 1.6; color: #4a5568; margin: 0 0 32px 0;">
+    Great news! You have a new qualified lead from your funnel <strong style="color: #667eea;">{{ funnel_name }}</strong>. They've completed all questions and are ready to connect.
+</p>
+
+<!-- Lead Score Badge -->
+{% if lead_score %}
+{% if lead_score >= 80 %}
+    {% set grad_start = '#10b981' %}
+    {% set grad_end = '#059669' %}
+{% elif lead_score >= 60 %}
+    {% set grad_start = '#f59e0b' %}
+    {% set grad_end = '#d97706' %}
+{% else %}
+    {% set grad_start = '#6b7280' %}
+    {% set grad_end = '#4b5563' %}
+{% endif %}
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 0 0 32px 0;">
+    <tr>
+        <td style="text-align: center;">
+            <div style="display: inline-block; padding: 16px 32px; border-radius: 50px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); background: {% if grad_start and grad_end %}linear-gradient(135deg, {{ grad_start }} 0%, {{ grad_end }} 100%){% else %}#10b981{% endif %};">
+                <p style="margin: 0; font-size: 14px; color: rgba(255,255,255,0.9); text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Lead Quality Score</p>
+                <p style="margin: 8px 0 0 0; font-size: 36px; color: #ffffff; font-weight: 700; line-height: 1;">{{ lead_score }}<span style="font-size: 24px;">/100</span></p>
+                <p style="margin: 4px 0 0 0; font-size: 13px; color: rgba(255,255,255,0.8);">
+                    {% if lead_score >= 80 %}🔥 Hot Lead - Act Fast!
+                    {% elif lead_score >= 60 %}⭐ Qualified Lead
+                    {% else %}📋 Follow Up Recommended
+                    {% endif %}
+                </p>
+            </div>
+        </td>
+    </tr>
+</table>
+{% endif %}
+
+<!-- Lead Information Card -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 0 0 32px 0;">
+    <tr>
+        <td style="background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%); border: 2px solid #e2e8f0; border-radius: 12px; padding: 32px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+            <h3 style="margin: 0 0 24px 0; font-size: 20px; font-weight: 700; color: #1a202c; border-bottom: 2px solid #e2e8f0; padding-bottom: 12px;">
+                📋 Lead Details
+            </h3>
+            
+            <!-- Contact Info Grid -->
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                <!-- Full Name -->
+                <tr>
+                    <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0;">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                                <td style="width: 32px; vertical-align: top;">
+                                    <span style="font-size: 20px;">👤</span>
+                                </td>
+                                <td style="vertical-align: top;">
+                                    <p style="margin: 0 0 4px 0; font-size: 13px; color: #718096; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">Full Name</p>
+                                    <p style="margin: 0; font-size: 16px; color: #1a202c; font-weight: 600;">{{ lead_name|default('Not provided') }}</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                
+                <!-- Email -->
+                <tr>
+                    <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0;">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                                <td style="width: 32px; vertical-align: top;">
+                                    <span style="font-size: 20px;">📧</span>
+                                </td>
+                                <td style="vertical-align: top;">
+                                    <p style="margin: 0 0 4px 0; font-size: 13px; color: #718096; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">Email Address</p>
+                                    <p style="margin: 0;">
+                                        <a href="mailto:{{ lead_email }}" style="font-size: 16px; color: #667eea; font-weight: 600; text-decoration: none;">{{ lead_email }}</a>
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                
+                <!-- Phone (if available) -->
+                {% if lead_phone %}
+                <tr>
+                    <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0;">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                                <td style="width: 32px; vertical-align: top;">
+                                    <span style="font-size: 20px;">📱</span>
+                                </td>
+                                <td style="vertical-align: top;">
+                                    <p style="margin: 0 0 4px 0; font-size: 13px; color: #718096; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">Phone Number</p>
+                                    <p style="margin: 0;">
+                                        <a href="tel:{{ lead_phone }}" style="font-size: 16px; color: #667eea; font-weight: 600; text-decoration: none;">{{ lead_phone }}</a>
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                {% endif %}
+                
+                <!-- Company (if available) -->
+                {% if lead_company %}
+                <tr>
+                    <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0;">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                                <td style="width: 32px; vertical-align: top;">
+                                    <span style="font-size: 20px;">🏢</span>
+                                </td>
+                                <td style="vertical-align: top;">
+                                    <p style="margin: 0 0 4px 0; font-size: 13px; color: #718096; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">Company</p>
+                                    <p style="margin: 0; font-size: 16px; color: #1a202c; font-weight: 600;">{{ lead_company }}</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                {% endif %}
+                
+                <!-- Location (if available) -->
+                {% if lead_location %}
+                <tr>
+                    <td style="padding: 12px 0; border-bottom: 1px solid #e2e8f0;">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                                <td style="width: 32px; vertical-align: top;">
+                                    <span style="font-size: 20px;">📍</span>
+                                </td>
+                                <td style="vertical-align: top;">
+                                    <p style="margin: 0 0 4px 0; font-size: 13px; color: #718096; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">Location</p>
+                                    <p style="margin: 0; font-size: 16px; color: #1a202c; font-weight: 600;">{{ lead_location }}</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                {% endif %}
+                
+                <!-- Submission Time -->
+                <tr>
+                    <td style="padding: 12px 0;">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                                <td style="width: 32px; vertical-align: top;">
+                                    <span style="font-size: 20px;">⏰</span>
+                                </td>
+                                <td style="vertical-align: top;">
+                                    <p style="margin: 0 0 4px 0; font-size: 13px; color: #718096; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">Submitted</p>
+                                    <p style="margin: 0; font-size: 16px; color: #1a202c; font-weight: 600;">{{ submission_time|default('Just now') }}</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<!-- Key Insights (if available) -->
+{% if lead_insights %}
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 0 0 32px 0;">
+    <tr>
+        <td class="card card-info" style="background: linear-gradient(135deg, #e7f3ff 0%, #cfe2ff 100%); border-left: 4px solid #2196f3; border-radius: 10px; padding: 24px;">
+            <p style="margin: 0 0 16px 0; font-weight: 600; color: #1a202c; font-size: 18px;">
+                💡 Key Insights
+            </p>
+            <ul style="margin: 0; padding-left: 20px; color: #4a5568; font-size: 15px; line-height: 1.8;">
+                {% for insight in lead_insights %}
+                <li style="margin-bottom: 8px;">{{ insight }}</li>
+                {% endfor %}
+            </ul>
+        </td>
+    </tr>
+</table>
+{% endif %}
+
+<!-- Action Buttons -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 0 0 32px 0;">
+    <tr>
+        <td style="text-align: center; padding: 32px 0;">
+            <!-- Primary CTA -->
+            <a href="{{ view_lead_url }}" class="button" style="display: inline-block; padding: 18px 48px; font-size: 18px; font-weight: 600; color: #ffffff !important; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 10px; text-decoration: none; box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3); margin: 0 8px 16px 8px;">
+                👀 View Full Lead Details
+            </a>
+            
+            <!-- Secondary CTA -->
+            <a href="{{ contact_lead_url|default('mailto:' + lead_email) }}" style="display: inline-block; padding: 18px 48px; font-size: 18px; font-weight: 600; color: #667eea !important; background: #ffffff; border: 2px solid #667eea; border-radius: 10px; text-decoration: none; margin: 0 8px 16px 8px;">
+                ✉️ Contact Now
+            </a>
+        </td>
+    </tr>
+</table>
+
+<!-- Divider -->
+<div class="divider" style="height: 1px; background: linear-gradient(to right, transparent, #e2e8f0, transparent); margin: 40px 0;"></div>
+
+<!-- Follow-up Tips -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 32px 0;">
+    <tr>
+        <td class="card card-warning" style="background: linear-gradient(135deg, #fff3cd 0%, #ffe69c 100%); border-left: 4px solid #f59e0b; border-radius: 10px; padding: 24px;">
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                <tr>
+                    <td style="width: 40px; vertical-align: top; padding-right: 12px;">
+                        <span style="font-size: 32px;">⚡</span>
+                    </td>
+                    <td>
+                        <p style="margin: 0 0 12px 0; font-weight: 700; color: #1a202c; font-size: 18px;">
+                            Pro Tip: Follow Up Fast!
+                        </p>
+                        <p style="margin: 0 0 16px 0; font-size: 15px; color: #4a5568; line-height: 1.6;">
+                            Studies show that responding within the <strong style="color: #d97706;">first hour</strong> increases conversion rates by up to <strong style="color: #d97706;">7x</strong>. Strike while the iron is hot! 🔥
+                        </p>
+                        <div style="background: rgba(255,255,255,0.5); border-radius: 8px; padding: 16px; margin-top: 16px;">
+                            <p style="margin: 0 0 8px 0; font-size: 14px; color: #2d3748; font-weight: 600;">Recommended Next Steps:</p>
+                            <ol style="margin: 0; padding-left: 20px; color: #4a5568; font-size: 14px; line-height: 1.6;">
+                                <li style="margin-bottom: 6px;">Review their complete response details</li>
+                                <li style="margin-bottom: 6px;">Send a personalized follow-up email</li>
+                                <li style="margin-bottom: 6px;">Schedule a discovery call if qualified</li>
+                                <li style="margin-bottom: 0;">Add them to your CRM or email sequence</li>
+                            </ol>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<!-- Funnel Performance Stats -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 32px 0;">
+    <tr>
+        <td style="background: #f7fafc; border-radius: 10px; padding: 24px; border: 2px solid #e2e8f0;">
+            <p style="margin: 0 0 16px 0; font-size: 16px; font-weight: 600; color: #2d3748; text-align: center;">
+                📊 Your Funnel Performance Today
+            </p>
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                <tr>
+                    <td style="width: 25%; text-align: center; padding: 12px; border-right: 1px solid #cbd5e0;">
+                        <p style="color: #667eea; font-size: 28px; font-weight: 700; margin: 0; line-height: 1;">{{ total_views|default('24') }}</p>
+                        <p style="color: #718096; font-size: 12px; margin: 4px 0 0 0;">Views</p>
+                    </td>
+                    <td style="width: 25%; text-align: center; padding: 12px; border-right: 1px solid #cbd5e0;">
+                        <p style="color: #10b981; font-size: 28px; font-weight: 700; margin: 0; line-height: 1;">{{ total_starts|default('18') }}</p>
+                        <p style="color: #718096; font-size: 12px; margin: 4px 0 0 0;">Starts</p>
+                    </td>
+                    <td style="width: 25%; text-align: center; padding: 12px; border-right: 1px solid #cbd5e0;">
+                        <p style="color: #f59e0b; font-size: 28px; font-weight: 700; margin: 0; line-height: 1;">{{ total_completions|default('12') }}</p>
+                        <p style="color: #718096; font-size: 12px; margin: 4px 0 0 0;">Completions</p>
+                    </td>
+                    <td style="width: 25%; text-align: center; padding: 12px;">
+                        <p style="color: #8b5cf6; font-size: 28px; font-weight: 700; margin: 0; line-height: 1;">{{ conversion_rate|default('67') }}%</p>
+                        <p style="color: #718096; font-size: 12px; margin: 4px 0 0 0;">Conversion</p>
+                    </td>
+                </tr>
+            </table>
+            <div style="text-align: center; margin-top: 16px;">
+                <a href="{{ analytics_url|default(dashboard_url) }}" style="font-size: 14px; color: #667eea; font-weight: 600; text-decoration: none;">View Full Analytics →</a>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<!-- Quick Actions -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 32px 0;">
+    <tr>
+        <td style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border-left: 4px solid #10b981; border-radius: 10px; padding: 24px;">
+            <p style="margin: 0 0 16px 0; font-weight: 600; color: #1a202c; font-size: 18px;">
+                🚀 Quick Actions
+            </p>
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                <tr>
+                    <td style="padding: 8px 0;">
+                        <a href="{{ view_lead_url }}" style="color: #10b981; font-size: 15px; text-decoration: none; font-weight: 600;">
+                            → View complete response and all answers
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px 0;">
+                        <a href="{{ add_notes_url|default(view_lead_url) }}" style="color: #10b981; font-size: 15px; text-decoration: none; font-weight: 600;">
+                            → Add notes and tags for organization
+                        </a>
+                    </td>
+                </tr

@@ -1,0 +1,245 @@
+# =============================================================================
+# AI FUNNEL BUILDER - DEVELOPMENT DEPENDENCIES
+# =============================================================================
+# Additional packages for development, testing, and code quality
+# Install: pip install -r requirements-dev.txt
+# =============================================================================
+
+# First, install production dependencies
+-r requirements.txt
+
+# -----------------------------------------------------------------------------
+# TESTING FRAMEWORK
+# -----------------------------------------------------------------------------
+pytest==7.4.3                      # Testing framework
+pytest-asyncio==0.21.1             # Async test support
+pytest-cov==4.1.0                  # Code coverage reports
+pytest-mock==3.12.0                # Mocking utilities
+pytest-xdist==3.5.0                # Parallel test execution
+pytest-timeout==2.2.0              # Test timeout handling
+pytest-env==1.1.3                  # Environment variable management for tests
+pytest-benchmark==4.0.0            # Performance benchmarking
+
+# Test Coverage & Reporting
+coverage[toml]==7.3.2              # Coverage measurement
+coverage-badge==1.1.0              # Generate coverage badges
+
+# -----------------------------------------------------------------------------
+# HTTP TESTING
+# -----------------------------------------------------------------------------
+httpx==0.25.2                      # Already in requirements.txt, but emphasized for testing
+respx==0.20.2                      # Mock HTTPX requests
+faker==20.1.0                      # Generate fake data for tests
+factory-boy==3.3.0                 # Test fixtures and factories
+
+# -----------------------------------------------------------------------------
+# CODE QUALITY & LINTING
+# -----------------------------------------------------------------------------
+# Formatters
+black==23.11.0                     # Code formatter (opinionated)
+isort==5.12.0                      # Import sorting
+autoflake==2.2.1                   # Remove unused imports/variables
+
+# Linters
+pylint==3.0.3                      # Comprehensive linting
+flake8==6.1.0                      # Style guide enforcement
+flake8-bugbear==23.12.2            # Additional bug detection
+flake8-docstrings==1.7.0           # Docstring linting
+flake8-annotations==3.0.1          # Type annotation checks
+pep8-naming==0.13.3                # PEP 8 naming conventions
+
+# Type Checking
+mypy==1.7.1                        # Static type checker
+types-redis==4.6.0.11              # Type stubs for Redis
+types-python-dateutil==2.8.19.14   # Type stubs for dateutil
+types-requests==2.31.0.10          # Type stubs for requests
+sqlalchemy[mypy]==2.0.23           # SQLAlchemy type stubs
+
+# Security
+bandit==1.7.5                      # Security issue scanner
+safety==2.3.5                      # Dependency vulnerability checker
+detect-secrets==1.4.0              # Prevent secrets in code
+
+# -----------------------------------------------------------------------------
+# CODE COMPLEXITY & METRICS
+# -----------------------------------------------------------------------------
+radon==6.0.1                       # Code complexity analysis
+mccabe==0.7.0                      # Cyclomatic complexity
+vulture==2.10                      # Find dead code
+pyflakes==3.1.0                    # Passive checker for Python programs
+
+# -----------------------------------------------------------------------------
+# DEBUGGING & PROFILING
+# -----------------------------------------------------------------------------
+ipdb==0.13.13                      # IPython debugger
+ipython==8.18.1                    # Enhanced Python shell
+pdbpp==0.10.3                      # Enhanced debugger
+py-spy==0.3.14                     # Sampling profiler
+memory-profiler==0.61.0            # Memory usage profiler
+line-profiler==4.1.1               # Line-by-line profiler
+
+# -----------------------------------------------------------------------------
+# DATABASE TOOLS
+# -----------------------------------------------------------------------------
+alembic-utils==0.8.1               # Utilities for Alembic migrations
+sqlalchemy-utils==0.41.1           # Extra utilities for SQLAlchemy
+faker-sqlalchemy==0.2.0            # Generate fake data for SQLAlchemy models
+
+# -----------------------------------------------------------------------------
+# API DEVELOPMENT & TESTING
+# -----------------------------------------------------------------------------
+openapi-spec-validator==0.7.1      # Validate OpenAPI specs
+prance==23.6.21.0                  # OpenAPI 3.0 spec validator
+fastapi-test-client==0.1.0         # Enhanced test client for FastAPI
+
+# -----------------------------------------------------------------------------
+# DOCUMENTATION
+# -----------------------------------------------------------------------------
+mkdocs==1.5.3                      # Documentation generator
+mkdocs-material==9.5.2             # Material theme for MkDocs
+mkdocstrings[python]==0.24.0       # Auto-generate docs from docstrings
+pdoc==14.2.0                       # Alternative API documentation
+sphinx==7.2.6                      # Full-featured documentation
+sphinx-rtd-theme==2.0.0            # ReadTheDocs theme
+
+# -----------------------------------------------------------------------------
+# CODE GENERATION & SCAFFOLDING
+# -----------------------------------------------------------------------------
+cookiecutter==2.5.0                # Project templating
+jinja2-cli==0.8.2                  # CLI for Jinja2 templates
+
+# -----------------------------------------------------------------------------
+# DEPENDENCY MANAGEMENT
+# -----------------------------------------------------------------------------
+pip-tools==7.3.0                   # pip-compile and pip-sync
+pipdeptree==2.13.1                 # Show dependency tree
+pip-audit==2.6.1                   # Audit dependencies for vulnerabilities
+
+# -----------------------------------------------------------------------------
+# PRE-COMMIT HOOKS
+# -----------------------------------------------------------------------------
+pre-commit==3.6.0                  # Git pre-commit hook framework
+
+# -----------------------------------------------------------------------------
+# LOAD TESTING & PERFORMANCE
+# -----------------------------------------------------------------------------
+locust==2.19.1                     # Load testing framework
+pytest-benchmark==4.0.0            # Already listed above
+
+# -----------------------------------------------------------------------------
+# MOCKING & STUBBING
+# -----------------------------------------------------------------------------
+responses==0.24.1                  # Mock requests library
+freezegun==1.4.0                   # Mock datetime
+time-machine==2.13.0               # Alternative datetime mocking
+moto==4.2.11                       # Mock AWS services
+
+# -----------------------------------------------------------------------------
+# DEVELOPMENT UTILITIES
+# -----------------------------------------------------------------------------
+python-dotenv==1.0.0               # Already in requirements.txt
+watchdog==3.0.0                    # File system event monitoring
+honcho==1.1.0                      # Process manager (alternative to docker-compose)
+environs==10.0.0                   # Enhanced environment variable parsing
+
+# -----------------------------------------------------------------------------
+# JUPYTER & NOTEBOOKS (for data exploration)
+# -----------------------------------------------------------------------------
+jupyter==1.0.0                     # Jupyter notebook
+jupyterlab==4.0.9                  # JupyterLab interface
+notebook==7.0.6                    # Classic notebook interface
+ipywidgets==8.1.1                  # Interactive widgets
+
+# -----------------------------------------------------------------------------
+# DATA ANALYSIS (for debugging/exploration)
+# -----------------------------------------------------------------------------
+pandas-profiling==3.6.6            # Automated EDA reports
+great-expectations==0.18.5         # Data validation framework
+
+# -----------------------------------------------------------------------------
+# AUTOMATION & TASK RUNNERS
+# -----------------------------------------------------------------------------
+invoke==2.2.0                      # Task execution tool
+taskipy==1.12.2                    # Task runner for Python projects
+
+# -----------------------------------------------------------------------------
+# CONTINUOUS INTEGRATION HELPERS
+# -----------------------------------------------------------------------------
+pytest-github-actions-annotate-failures==0.2.0  # Annotate GitHub Actions
+pytest-html==4.1.1                 # HTML test reports
+pytest-json-report==1.5.0          # JSON test reports
+
+# -----------------------------------------------------------------------------
+# OPENAI DEVELOPMENT
+# -----------------------------------------------------------------------------
+openai-whisper==20231117           # Audio transcription (future feature)
+tiktoken==0.5.2                    # Already in requirements.txt (token counting)
+
+# -----------------------------------------------------------------------------
+# REDIS TOOLS
+# -----------------------------------------------------------------------------
+redis-om==0.2.1                    # Redis object mapping
+rq==1.15.1                         # Alternative to Celery (simpler queue)
+rq-dashboard==0.6.1                # Dashboard for RQ
+
+# -----------------------------------------------------------------------------
+# FASTAPI DEVELOPMENT
+# -----------------------------------------------------------------------------
+fastapi-utils==0.2.1               # Utilities for FastAPI
+sqlmodel==0.0.14                   # SQLAlchemy + Pydantic integration (optional)
+
+# -----------------------------------------------------------------------------
+# EMAIL TESTING
+# -----------------------------------------------------------------------------
+mailtrap==2.0.0                    # Email testing service client
+email-reply-parser==0.5.12         # Parse email replies
+
+# -----------------------------------------------------------------------------
+# CHANGELOG & VERSION MANAGEMENT
+# -----------------------------------------------------------------------------
+commitizen==3.13.0                 # Conventional commits
+bump2version==1.0.1                # Version bumping tool
+semantic-version==2.10.0           # Semantic versioning
+
+# -----------------------------------------------------------------------------
+# GRAPH & VISUALIZATION (for architecture diagrams)
+# -----------------------------------------------------------------------------
+pydot==1.4.2                       # GraphViz wrapper
+diagrams==0.23.4                   # Architecture diagrams as code
+
+# =============================================================================
+# TOTAL: ~100+ development packages
+# Estimated install time: 3-5 minutes
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# USAGE
+# -----------------------------------------------------------------------------
+# Install all dependencies:
+#   pip install -r requirements-dev.txt
+#
+# Run tests:
+#   pytest
+#
+# Run tests with coverage:
+#   pytest --cov=app --cov-report=html
+#
+# Format code:
+#   black app/
+#   isort app/
+#
+# Lint code:
+#   flake8 app/
+#   mypy app/
+#
+# Security check:
+#   bandit -r app/
+#   safety check
+#
+# Pre-commit setup:
+#   pre-commit install
+#   pre-commit run --all-files
+#
+# Generate docs:
+#   mkdocs serve
+# -----------------------------------------------------------------------------

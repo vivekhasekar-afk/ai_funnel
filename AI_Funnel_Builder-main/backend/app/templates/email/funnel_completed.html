@@ -1,0 +1,303 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Celebration -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 0 0 32px 0;">
+    <tr>
+        <td style="text-align: center; padding: 32px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12px; box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3); position: relative; overflow: hidden;">
+            <!-- Confetti Background Pattern -->
+            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px); background-size: 20px 20px; opacity: 0.5;"></div>
+            
+            <div style="position: relative; z-index: 1;">
+                <span style="font-size: 64px; line-height: 1; display: block; margin-bottom: 16px; animation: bounce 1s ease-in-out;">🎉</span>
+                <h2 style="margin: 0; font-size: 32px; font-weight: 700; color: #ffffff; line-height: 1.2;">
+                    Funnel Completed!
+                </h2>
+                <p style="margin: 12px 0 0 0; font-size: 18px; color: rgba(255,255,255,0.95);">
+                    Someone just finished your funnel
+                </p>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<!-- Greeting -->
+<p style="font-size: 18px; line-height: 1.6; color: #2d3748; margin: 0 0 16px 0;">
+    Hi <strong>{{ user_name }}</strong>,
+</p>
+
+<p style="font-size: 16px; line-height: 1.6; color: #4a5568; margin: 0 0 32px 0;">
+    Congratulations! Someone just completed your funnel <strong style="color: #667eea;">{{ funnel_name }}</strong> and submitted all their responses. 🚀
+</p>
+
+<!-- Completion Summary Card -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 0 0 32px 0;">
+    <tr>
+        <td style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 36px 32px; border-radius: 12px; box-shadow: 0 8px 24px rgba(102, 126, 234, 0.25);">
+            <h3 style="margin: 0 0 24px 0; font-size: 24px; font-weight: 700; color: #ffffff; text-align: center; text-transform: uppercase; letter-spacing: 1px;">
+                Completion Summary
+            </h3>
+            
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                <tr>
+                    <!-- Answers Count -->
+                    <td style="width: 33.33%; text-align: center; padding: 16px; vertical-align: top;">
+                        <div style="background: rgba(255,255,255,0.15); padding: 24px 16px; border-radius: 12px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);">
+                            <p style="color: #ffffff; margin: 0; font-size: 48px; font-weight: 700; line-height: 1;">{{ answers_count|default('8') }}</p>
+                            <p style="color: rgba(255,255,255,0.9); margin: 8px 0 0 0; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">Questions Answered</p>
+                        </div>
+                    </td>
+                    
+                    <!-- Completion Time -->
+                    <td style="width: 33.33%; text-align: center; padding: 16px; vertical-align: top;">
+                        <div style="background: rgba(255,255,255,0.15); padding: 24px 16px; border-radius: 12px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);">
+                            <p style="color: #ffffff; margin: 0; font-size: 48px; font-weight: 700; line-height: 1;">{{ completion_time|default('3:45') }}</p>
+                            <p style="color: rgba(255,255,255,0.9); margin: 8px 0 0 0; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">Time Taken</p>
+                        </div>
+                    </td>
+                    
+                    <!-- Completion Rate -->
+                    <td style="width: 33.33%; text-align: center; padding: 16px; vertical-align: top;">
+                        <div style="background: rgba(255,255,255,0.15); padding: 24px 16px; border-radius: 12px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);">
+                            <p style="color: #ffffff; margin: 0; font-size: 48px; font-weight: 700; line-height: 1;">100%</p>
+                            <p style="color: rgba(255,255,255,0.9); margin: 8px 0 0 0; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">Completion Rate</p>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<!-- Respondent Info (if available) -->
+{% if respondent_name or respondent_email %}
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 0 0 32px 0;">
+    <tr>
+        <td style="background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%); border: 2px solid #e2e8f0; border-radius: 10px; padding: 24px;">
+            <h3 style="margin: 0 0 16px 0; font-size: 18px; font-weight: 700; color: #1a202c;">
+                👤 Respondent Information
+            </h3>
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                {% if respondent_name %}
+                <tr>
+                    <td style="padding: 8px 0; width: 100px; color: #718096; font-size: 14px; font-weight: 600;">Name:</td>
+                    <td style="padding: 8px 0; color: #2d3748; font-size: 15px; font-weight: 600;">{{ respondent_name }}</td>
+                </tr>
+                {% endif %}
+                {% if respondent_email %}
+                <tr>
+                    <td style="padding: 8px 0; width: 100px; color: #718096; font-size: 14px; font-weight: 600;">Email:</td>
+                    <td style="padding: 8px 0;">
+                        <a href="mailto:{{ respondent_email }}" style="color: #667eea; font-size: 15px; font-weight: 600; text-decoration: none;">{{ respondent_email }}</a>
+                    </td>
+                </tr>
+                {% endif %}
+                {% if respondent_location %}
+                <tr>
+                    <td style="padding: 8px 0; width: 100px; color: #718096; font-size: 14px; font-weight: 600;">Location:</td>
+                    <td style="padding: 8px 0; color: #2d3748; font-size: 15px;">{{ respondent_location }}</td>
+                </tr>
+                {% endif %}
+            </table>
+        </td>
+    </tr>
+</table>
+{% endif %}
+
+<!-- Quick Actions Grid -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 0 0 32px 0;">
+    <tr>
+        <td style="background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 32px; border-radius: 12px; border: 2px solid #e5e7eb;">
+            <p style="margin: 0 0 20px 0; font-weight: 600; color: #1a202c; font-size: 18px; text-align: center;">
+                🚀 What You Can Do Next
+            </p>
+            
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                <!-- Row 1 -->
+                <tr>
+                    <td style="width: 50%; padding: 8px; vertical-align: top;">
+                        <div style="background: #ffffff; border: 2px solid #e2e8f0; border-radius: 10px; padding: 20px; height: 100%; transition: transform 0.2s;">
+                            <span style="font-size: 32px; display: block; margin-bottom: 8px;">📊</span>
+                            <p style="margin: 0 0 8px 0; font-size: 16px; font-weight: 600; color: #1a202c;">View Full Response</p>
+                            <p style="margin: 0 0 12px 0; font-size: 13px; color: #718096; line-height: 1.5;">See all answers and detailed insights</p>
+                            <a href="{{ view_response_url }}" style="font-size: 14px; color: #667eea; font-weight: 600; text-decoration: none;">View Now →</a>
+                        </div>
+                    </td>
+                    
+                    <td style="width: 50%; padding: 8px; vertical-align: top;">
+                        <div style="background: #ffffff; border: 2px solid #e2e8f0; border-radius: 10px; padding: 20px; height: 100%;">
+                            <span style="font-size: 32px; display: block; margin-bottom: 8px;">✉️</span>
+                            <p style="margin: 0 0 8px 0; font-size: 16px; font-weight: 600; color: #1a202c;">Follow Up</p>
+                            <p style="margin: 0 0 12px 0; font-size: 13px; color: #718096; line-height: 1.5;">Send a personalized follow-up message</p>
+                            <a href="{{ follow_up_url|default('mailto:' + respondent_email if respondent_email else '#') }}" style="font-size: 14px; color: #667eea; font-weight: 600; text-decoration: none;">Contact →</a>
+                        </div>
+                    </td>
+                </tr>
+                
+                <!-- Row 2 -->
+                <tr>
+                    <td style="width: 50%; padding: 8px; vertical-align: top;">
+                        <div style="background: #ffffff; border: 2px solid #e2e8f0; border-radius: 10px; padding: 20px; height: 100%;">
+                            <span style="font-size: 32px; display: block; margin-bottom: 8px;">🏷️</span>
+                            <p style="margin: 0 0 8px 0; font-size: 16px; font-weight: 600; color: #1a202c;">Add Tags & Notes</p>
+                            <p style="margin: 0 0 12px 0; font-size: 13px; color: #718096; line-height: 1.5;">Organize with tags and add notes</p>
+                            <a href="{{ add_notes_url|default(dashboard_url) }}" style="font-size: 14px; color: #667eea; font-weight: 600; text-decoration: none;">Organize →</a>
+                        </div>
+                    </td>
+                    
+                    <td style="width: 50%; padding: 8px; vertical-align: top;">
+                        <div style="background: #ffffff; border: 2px solid #e2e8f0; border-radius: 10px; padding: 20px; height: 100%;">
+                            <span style="font-size: 32px; display: block; margin-bottom: 8px;">📥</span>
+                            <p style="margin: 0 0 8px 0; font-size: 16px; font-weight: 600; color: #1a202c;">Export Data</p>
+                            <p style="margin: 0 0 12px 0; font-size: 13px; color: #718096; line-height: 1.5;">Download as CSV or sync to CRM</p>
+                            <a href="{{ export_url|default(dashboard_url) }}" style="font-size: 14px; color: #667eea; font-weight: 600; text-decoration: none;">Export →</a>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<!-- Primary CTA Button -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+    <tr>
+        <td class="button-wrapper" style="text-align: center; padding: 16px 0 32px 0;">
+            <a href="{{ dashboard_url }}" class="button" style="display: inline-block; padding: 18px 48px; font-size: 18px; font-weight: 600; color: #ffffff !important; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 10px; text-decoration: none; box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);">
+                📊 Go to Dashboard
+            </a>
+        </td>
+    </tr>
+</table>
+
+<!-- Divider -->
+<div class="divider" style="height: 1px; background: linear-gradient(to right, transparent, #e2e8f0, transparent); margin: 40px 0;"></div>
+
+<!-- Performance Insight -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 32px 0;">
+    <tr>
+        <td class="card" style="background: linear-gradient(135deg, {% if conversion_rate >= 50 %}#dcfce7{% elif conversion_rate >= 30 %}#e7f3ff{% else %}#fff3cd{% endif %} 0%, {% if conversion_rate >= 50 %}#bbf7d0{% elif conversion_rate >= 30 %}#cfe2ff{% else %}#ffe69c{% endif %} 100%); border-left: 4px solid {% if conversion_rate >= 50 %}#10b981{% elif conversion_rate >= 30 %}#2196f3{% else %}#f59e0b{% endif %}; border-radius: 10px; padding: 24px;">
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                <tr>
+                    <td style="width: 48px; vertical-align: top; padding-right: 16px;">
+                        <span style="font-size: 40px;">
+                            {% if conversion_rate >= 50 %}🎯
+                            {% elif conversion_rate >= 30 %}📈
+                            {% else %}💡
+                            {% endif %}
+                        </span>
+                    </td>
+                    <td>
+                        <p style="margin: 0 0 8px 0; font-weight: 700; color: #1a202c; font-size: 18px;">
+                            Performance Insight
+                        </p>
+                        <p style="margin: 0; font-size: 15px; color: #4a5568; line-height: 1.6;">
+                            Your funnel <strong style="color: #1a202c;">{{ funnel_name }}</strong> currently has a <strong style="color: {% if conversion_rate >= 50 %}#10b981{% elif conversion_rate >= 30 %}#2196f3{% else %}#f59e0b{% endif %};">{{ conversion_rate|default('45') }}%</strong> completion rate.
+                            
+                            {% if conversion_rate >= 50 %}
+                            That's excellent! You're crushing it! 🔥 Keep up the great work and consider duplicating this funnel's strategy.
+                            {% elif conversion_rate >= 30 %}
+                            You're doing great! With some optimization, you could push this even higher. Check out our <a href="{{ tips_url|default('#') }}" style="color: #2196f3; text-decoration: none; font-weight: 600;">optimization tips</a>.
+                            {% else %}
+                            There's room for improvement. Consider A/B testing your questions or simplifying the flow. We're here to help! 💪
+                            {% endif %}
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<!-- Today's Performance Stats -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 32px 0;">
+    <tr>
+        <td style="background: #f7fafc; border-radius: 10px; padding: 28px; border: 2px solid #e2e8f0;">
+            <p style="margin: 0 0 20px 0; font-size: 18px; font-weight: 600; color: #2d3748; text-align: center;">
+                📊 Today's Funnel Performance
+            </p>
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                <tr>
+                    <td style="width: 25%; text-align: center; padding: 12px; border-right: 1px solid #cbd5e0;">
+                        <p style="color: #667eea; font-size: 36px; font-weight: 700; margin: 0; line-height: 1;">{{ total_views|default('127') }}</p>
+                        <p style="color: #718096; font-size: 13px; margin: 8px 0 0 0; font-weight: 600;">Views</p>
+                    </td>
+                    <td style="width: 25%; text-align: center; padding: 12px; border-right: 1px solid #cbd5e0;">
+                        <p style="color: #10b981; font-size: 36px; font-weight: 700; margin: 0; line-height: 1;">{{ total_starts|default('89') }}</p>
+                        <p style="color: #718096; font-size: 13px; margin: 8px 0 0 0; font-weight: 600;">Starts</p>
+                    </td>
+                    <td style="width: 25%; text-align: center; padding: 12px; border-right: 1px solid #cbd5e0;">
+                        <p style="color: #f59e0b; font-size: 36px; font-weight: 700; margin: 0; line-height: 1;">{{ total_completions|default('58') }}</p>
+                        <p style="color: #718096; font-size: 13px; margin: 8px 0 0 0; font-weight: 600;">Completed</p>
+                    </td>
+                    <td style="width: 25%; text-align: center; padding: 12px;">
+                        <p style="color: #8b5cf6; font-size: 36px; font-weight: 700; margin: 0; line-height: 1;">{{ conversion_rate|default('65') }}%</p>
+                        <p style="color: #718096; font-size: 13px; margin: 8px 0 0 0; font-weight: 600;">Conversion</p>
+                    </td>
+                </tr>
+            </table>
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="{{ analytics_url|default(dashboard_url) }}" style="font-size: 14px; color: #667eea; font-weight: 600; text-decoration: none;">View Detailed Analytics →</a>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<!-- Optimization Tips -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 32px 0;">
+    <tr>
+        <td class="card card-info" style="background: linear-gradient(135deg, #e7f3ff 0%, #cfe2ff 100%); border-left: 4px solid #2196f3; border-radius: 10px; padding: 24px;">
+            <p style="margin: 0 0 16px 0; font-weight: 700; color: #1a202c; font-size: 18px;">
+                💡 Quick Optimization Tips
+            </p>
+            <ul style="margin: 0; padding-left: 20px; color: #4a5568; font-size: 15px; line-height: 1.8;">
+                <li style="margin-bottom: 10px;"><strong>Analyze drop-off points:</strong> Check which questions have the highest exit rates</li>
+                <li style="margin-bottom: 10px;"><strong>Test different question orders:</strong> Sometimes reordering can improve completion</li>
+                <li style="margin-bottom: 10px;"><strong>Simplify complex questions:</strong> Break down multi-part questions into separate steps</li>
+                <li style="margin-bottom: 10px;"><strong>Add progress indicators:</strong> Show users how far along they are</li>
+                <li style="margin-bottom: 0;"><strong>A/B test your copy:</strong> Small wording changes can make a big difference</li>
+            </ul>
+        </td>
+    </tr>
+</table>
+
+<!-- Notification Settings -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 32px 0;">
+    <tr>
+        <td style="text-align: center; padding: 20px; background: #f7fafc; border-radius: 8px; border: 1px dashed #cbd5e0;">
+            <p style="margin: 0 0 8px 0; font-size: 14px; color: #4a5568;">
+                Want to adjust when you receive these notifications?
+            </p>
+            <a href="{{ settings_url|default('#') }}" style="font-size: 14px; color: #667eea; font-weight: 600; text-decoration: none;">
+                Manage Notification Preferences →
+            </a>
+        </td>
+    </tr>
+</table>
+
+<!-- Closing -->
+<p style="font-size: 16px; line-height: 1.6; color: #4a5568; margin: 32px 0 0 0;">
+    Keep up the great work! Every completed funnel is a step closer to your goals. 🎯
+</p>
+
+<p style="font-size: 16px; line-height: 1.6; color: #2d3748; margin: 16px 0 0 0;">
+    <strong>Cheers to your success!</strong><br>
+    The {{ project_name }} Team 🚀
+</p>
+
+<!-- P.S. Section -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 32px 0 0 0;">
+    <tr>
+        <td style="border-top: 2px solid #e2e8f0; padding-top: 20px;">
+            <p style="margin: 0; font-size: 14px; color: #718096; font-style: italic;">
+                <strong>P.S.</strong> Want to increase your completion rate even more? Schedule a free <a href="{{ optimization_call_url|default('#') }}" style="color: #667eea; text-decoration: none; font-weight: 600;">funnel optimization call</a> with our team! 📞
+            </p>
+        </td>
+    </tr>
+</table>
+
+{% endblock %}
+
+{% block footer %}
+{{ super() }}
+{% endblock %}

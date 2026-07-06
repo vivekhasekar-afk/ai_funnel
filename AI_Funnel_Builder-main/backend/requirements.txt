@@ -1,0 +1,233 @@
+# =============================================================================
+# AI FUNNEL BUILDER - PYTHON DEPENDENCIES
+# =============================================================================
+# Production-grade dependencies with pinned versions for reproducibility
+# Install: pip install -r requirements.txt
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# WEB FRAMEWORK & SERVER
+# -----------------------------------------------------------------------------
+fastapi==0.104.1              # Modern async web framework
+uvicorn[standard]==0.24.0     # ASGI server with performance extras
+python-multipart==0.0.6       # Form/file upload support
+email-validator==2.1.0        # Email validation for Pydantic
+
+# -----------------------------------------------------------------------------
+# DATABASE & ORM
+# -----------------------------------------------------------------------------
+sqlalchemy==2.0.23            # SQL toolkit and ORM
+alembic==1.12.1               # Database migration tool
+psycopg2-binary==2.9.9        # PostgreSQL adapter
+asyncpg==0.29.0               # Async PostgreSQL driver (optional, for async queries)
+
+# -----------------------------------------------------------------------------
+# NOSQL DATABASE
+# -----------------------------------------------------------------------------
+pymongo==4.6.0                # MongoDB driver for flexible schemas
+motor==3.3.2                  # Async MongoDB driver
+
+# -----------------------------------------------------------------------------
+# DATA VALIDATION & SETTINGS
+# -----------------------------------------------------------------------------
+pydantic==2.5.0               # Data validation using Python type hints
+pydantic-settings==2.1.0      # Settings management from env vars
+
+# -----------------------------------------------------------------------------
+# AUTHENTICATION & SECURITY
+# -----------------------------------------------------------------------------
+python-jose[cryptography]==3.3.0   # JWT token creation/verification
+passlib[bcrypt]==1.7.4             # Password hashing with bcrypt
+bcrypt==4.1.1                      # Explicit bcrypt dependency
+cryptography==41.0.7               # Cryptographic recipes
+
+# -----------------------------------------------------------------------------
+# AI & MACHINE LEARNING
+# -----------------------------------------------------------------------------
+openai==1.3.5                 # OpenAI API client (GPT-4)
+tiktoken==0.5.2               # Token counting for OpenAI models
+anthropic==0.7.8              # Claude AI (optional alternative)
+
+# ML/Data Science
+scikit-learn==1.3.2           # Machine learning library
+xgboost==2.0.2                # Gradient boosting for predictions
+pandas==2.1.3                 # Data manipulation
+numpy==1.26.2                 # Numerical computing
+joblib==1.3.2                 # Model serialization
+
+# -----------------------------------------------------------------------------
+# CACHING & TASK QUEUE
+# -----------------------------------------------------------------------------
+redis==5.0.1                  # Redis client for caching
+celery==5.3.4                 # Distributed task queue
+flower==2.0.1                 # Celery monitoring tool
+kombu==5.3.4                  # Messaging library for Celery
+
+# -----------------------------------------------------------------------------
+# PAYMENTS & SUBSCRIPTIONS
+# -----------------------------------------------------------------------------
+stripe==7.6.0                 # Stripe API for payments
+
+# -----------------------------------------------------------------------------
+# EMAIL & COMMUNICATIONS
+# -----------------------------------------------------------------------------
+sendgrid==6.10.0              # SendGrid email service
+python-dotenv==1.0.0          # Load .env files
+jinja2==3.1.2                 # Email template rendering
+
+# -----------------------------------------------------------------------------
+# CLOUD STORAGE
+# -----------------------------------------------------------------------------
+boto3==1.29.0                 # AWS SDK (S3 storage)
+botocore==1.32.0              # AWS core library
+
+# -----------------------------------------------------------------------------
+# HTTP CLIENTS & INTEGRATIONS
+# -----------------------------------------------------------------------------
+httpx==0.25.2                 # Async HTTP client
+requests==2.31.0              # Sync HTTP client
+aiohttp==3.9.1                # Async HTTP client/server
+
+# -----------------------------------------------------------------------------
+# RATE LIMITING & MIDDLEWARE
+# -----------------------------------------------------------------------------
+slowapi==0.1.9                # Rate limiting for FastAPI
+limits==3.6.0                 # Rate limiting utilities
+
+# -----------------------------------------------------------------------------
+# MONITORING & LOGGING
+# -----------------------------------------------------------------------------
+sentry-sdk[fastapi]==1.38.0   # Error tracking & monitoring
+loguru==0.7.2                 # Beautiful logging library
+python-json-logger==2.0.7     # JSON structured logging
+
+# -----------------------------------------------------------------------------
+# DATA SERIALIZATION & VALIDATION
+# -----------------------------------------------------------------------------
+orjson==3.9.10                # Fast JSON serialization
+python-dateutil==2.8.2        # Date/time utilities
+pytz==2023.3                  # Timezone support
+
+# -----------------------------------------------------------------------------
+# UTILITIES
+# -----------------------------------------------------------------------------
+python-slugify==8.0.1         # URL slug generation
+shortuuid==1.0.11             # Short unique IDs
+hashids==1.3.1                # Encode/decode hashids
+
+# -----------------------------------------------------------------------------
+# DATA EXPORT
+# -----------------------------------------------------------------------------
+openpyxl==3.1.2               # Excel file generation
+xlsxwriter==3.1.9             # Alternative Excel writer
+python-csv==0.0.13            # Enhanced CSV handling
+
+# -----------------------------------------------------------------------------
+# BACKGROUND TASKS & SCHEDULING
+# -----------------------------------------------------------------------------
+apscheduler==3.10.4           # Advanced task scheduling
+
+# -----------------------------------------------------------------------------
+# API DOCUMENTATION
+# -----------------------------------------------------------------------------
+# FastAPI includes Swagger/OpenAPI by default, but these enhance it
+fastapi-pagination==0.12.13   # Pagination utilities
+fastapi-cache2==0.2.1         # Caching decorator for routes
+
+# -----------------------------------------------------------------------------
+# EXTERNAL API INTEGRATIONS
+# -----------------------------------------------------------------------------
+# Meta/Facebook
+facebook-sdk==3.1.0           # Facebook Graph API
+
+# Google
+google-auth==2.25.2           # Google authentication
+google-api-python-client==2.108.0  # Google APIs
+google-cloud-bigquery==3.14.1      # BigQuery for data warehouse
+
+# CRM
+simple-salesforce==1.12.5     # Salesforce API
+hubspot-api-client==8.2.1     # HubSpot API
+
+# -----------------------------------------------------------------------------
+# TESTING (not in requirements-dev.txt)
+# -----------------------------------------------------------------------------
+# Uncomment if you want test deps in production Docker image
+# pytest==7.4.3
+# pytest-asyncio==0.21.1
+# pytest-cov==4.1.0
+# httpx==0.25.2  # Already included above
+
+# -----------------------------------------------------------------------------
+# PERFORMANCE & OPTIMIZATION
+# -----------------------------------------------------------------------------
+gunicorn==21.2.0              # WSGI server (alternative to uvicorn)
+httptools==0.6.1              # Fast HTTP parsing (already in uvicorn[standard])
+
+# -----------------------------------------------------------------------------
+# SECURITY & COMPLIANCE
+# -----------------------------------------------------------------------------
+python-decouple==3.8          # Strict separation of settings
+bleach==6.1.0                 # HTML sanitization
+validators==0.22.0            # Data validators (URL, email, etc.)
+
+# -----------------------------------------------------------------------------
+# WEBSOCKETS (for real-time features)
+# -----------------------------------------------------------------------------
+websockets==12.0              # WebSocket support
+python-socketio==5.10.0       # Socket.IO server
+
+# -----------------------------------------------------------------------------
+# IMAGE PROCESSING (for template thumbnails)
+# -----------------------------------------------------------------------------
+pillow==10.1.0                # Image manipulation
+wand==0.6.13                  # ImageMagick binding (optional)
+
+# -----------------------------------------------------------------------------
+# NATURAL LANGUAGE PROCESSING (for AI insights)
+# -----------------------------------------------------------------------------
+nltk==3.8.1                   # Natural language toolkit
+spacy==3.7.2                  # Advanced NLP (optional, heavy)
+textblob==0.17.1              # Simplified NLP
+
+# -----------------------------------------------------------------------------
+# TIMEZONE & INTERNATIONALIZATION
+# -----------------------------------------------------------------------------
+babel==2.13.1                 # Internationalization utilities
+phonenumbers==8.13.26         # Phone number parsing/validation
+
+# -----------------------------------------------------------------------------
+# DEVELOPMENT UTILITIES (keep in prod for debugging)
+# -----------------------------------------------------------------------------
+python-magic==0.4.27          # File type detection
+watchfiles==0.21.0            # File watching for hot reload
+
+# =============================================================================
+# TOTAL: ~80 packages
+# Estimated install time: 2-3 minutes
+# Docker image size: ~800MB (optimized)
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# INSTALLATION NOTES
+# -----------------------------------------------------------------------------
+# 1. Create virtual environment:
+#    python -m venv venv
+#    source venv/bin/activate  # or venv\Scripts\activate on Windows
+#
+# 2. Upgrade pip:
+#    pip install --upgrade pip
+#
+# 3. Install dependencies:
+#    pip install -r requirements.txt
+#
+# 4. For development, also install:
+#    pip install -r requirements-dev.txt
+#
+# 5. Verify installation:
+#    pip list
+#
+# 6. Security audit:
+#    pip install safety
+#    safety check
+# -----------------------------------------------------------------------------
